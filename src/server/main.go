@@ -7,11 +7,13 @@ import (
 	"server/game"
 	"server/gate"
 	"server/login"
+	"server/redisClient"
 	"server/threadPool"
 )
 
 func main() {
 	threadPool.InitPool(10)
+	redisClient.InitRedisClient()
 	lconf.LogLevel = conf.Server.LogLevel
 	lconf.LogPath = conf.Server.LogPath
 	lconf.LogFlag = conf.LogFlag
