@@ -46,6 +46,9 @@ func InitPool(capacity uint64) {
 	}
 	Pools = pools
 }
+func GetPool() *Pool {
+	return Pools
+}
 
 // NewPool init pool
 func NewPool(capacity uint64) (*Pool, error) {
@@ -115,6 +118,7 @@ func (p *Pool) run() {
 		defer func() {
 			p.decRunning()
 			if r := recover(); r != nil {
+				p.run()
 				if p.PanicHandler != nil {
 					p.PanicHandler(r)
 				} else {
