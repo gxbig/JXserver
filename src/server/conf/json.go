@@ -16,6 +16,7 @@ var Server struct {
 	MaxConnNum  int
 	ConsolePort int
 	ProfilePath string
+	RedisAddr   string
 }
 
 func init() {

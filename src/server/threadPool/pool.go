@@ -2,7 +2,7 @@ package threadPool
 
 import (
 	"errors"
-	"log"
+	"github.com/name5566/leaf/log"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -41,6 +41,7 @@ type Pool struct {
 
 func InitPool(capacity uint64) {
 	pools, err := NewPool(capacity)
+	log.Release("初始化协程池Pool成功!")
 	if err != nil {
 		panic(err)
 	}
@@ -122,7 +123,8 @@ func (p *Pool) run() {
 				if p.PanicHandler != nil {
 					p.PanicHandler(r)
 				} else {
-					log.Printf("Worker panic: %s\n", r)
+					log.Release("Worker panic: %s\n", r)
+
 				}
 			}
 		}()

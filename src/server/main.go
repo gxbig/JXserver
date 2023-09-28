@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	threadPool.InitPool(10)
+	threadPool.InitPool(conf.PoolMaxNum)
 	redisClient.InitRedisClient()
 	lconf.LogLevel = conf.Server.LogLevel
 	lconf.LogPath = conf.Server.LogPath

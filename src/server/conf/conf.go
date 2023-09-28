@@ -15,7 +15,8 @@ var (
 	HTTPTimeout            = 10 * time.Second
 	LenMsgLen              = 2
 	LittleEndian           = false
-
+	RedisPassword   string = ""
+	PoolMaxNum      uint64 = 10
 	// skeleton conf
 	GoLen              = 10000
 	TimerDispatcherLen = 10000
