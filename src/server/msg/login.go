@@ -2,16 +2,18 @@ package msg
 
 // 用户登陆协议
 type UserLogin struct {
-	LoginName string // 用户名
-	LoginPW   string // 密码
+	LoginName string `json:"loginName" ` // 用户名
+	LoginPW   string `json:"loginPW"`    // 密码
+	Code      string `json:"code"`       //验证码
 }
 
 // 注册协议
 type UserRegister struct {
-	LoginName string // 用户名
-	LoginPW   string // 密码
-	// Mobi      string // 手机号
-	// Email      string // 邮箱
+	LoginName string `json:"loginName"` // 用户名
+	LoginPW   string `json:"loginPW"`   // 密码
+	Code      string `json:"code"`      //验证码
+	Phone     string `json:"phone"`     // 手机号
+	Email     string `json:"email"`     // 邮箱
 }
 
 // 玩家的临时结构

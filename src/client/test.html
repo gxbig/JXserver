@@ -5,8 +5,42 @@
 <body>
 <h3 style="color: cornflowerblue;">Golang语言社区（www.Golang.Ltd）</h3> 发送数据: <input type='text' id='name' value="Leaf测试">
 <input type="submit" onclick="login()" />
+<input type='text' id='getCode' value="Leaf测试">
+<input type="submit" onclick="getCode()" />
+<div>验证码 <span id="code"></span></div>
 </body>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script>
 <script>
+
+function getCode(){
+
+    $.ajax({
+        url: 'http://127.0.0.1:9000/getCode',
+        data: {},
+        method:'get',
+        success: function(res,status){
+            console.log(res)
+            let codeArr =''
+            if(res.code==='200'){
+                codeArr =  res.data.split('').map((item,index)=>{
+                    return String.fromCharCode(item.charCodeAt()-index-1)
+                })
+
+            }
+            $('#code')[0].innerText =codeArr.join('')
+
+        },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        dataType: 'json'
+    });
+
+}
+
+
+
+
     var wsUri = "ws://127.0.0.1:3564/?{'new':3}";
     var json;
     function login() {
@@ -22,6 +56,10 @@
         console.log(wsUri);
         doSend(goServerJson);
     }
+    "{UrN".split('').map((item,index)=>{
+        return String.fromCharCode(item.charCodeAt()-index-1)
+    })
+
     var output;
     var websocket1;
     function init() {

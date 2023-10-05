@@ -6,7 +6,7 @@ import (
 	"server/conf"
 )
 
-var RedisClient *redis.Client
+var Rdb *redis.Client
 
 // 创建redis客户端
 func newClient() *redis.Client {
@@ -20,5 +20,5 @@ func newClient() *redis.Client {
 }
 func InitRedisClient() {
 	log.Release("开始初始化redis连接!")
-	RedisClient = newClient()
+	Rdb = newClient()
 }
