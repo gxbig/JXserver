@@ -8,6 +8,11 @@ type UserLogin struct {
 }
 
 // 注册协议
+type UserEmail struct {
+	Email string `json:"email"` // 邮箱
+}
+
+// 注册协议
 type UserRegister struct {
 	LoginName string `json:"loginName"` // 用户名
 	LoginPW   string `json:"loginPW"`   // 密码

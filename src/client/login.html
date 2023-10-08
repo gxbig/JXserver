@@ -1,9 +1,12 @@
 <head>
     <meta charset="utf-8" />
-    <title>金色传说游戏</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
+    <meta name="keywords" content="挣钱的游戏,金色传说,游戏,黄金,打工,荣耀,工会,联盟,挣钱,页游，好玩，挣钱游戏,收益,定义游戏">
+    <title>金色传说游戏-登录</title>
+
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
+
 </head>
-<body>
+<body class="background">
 
 <h3 style="color: cornflowerblue;">Golang语言社区（www.Golang.Ltd）</h3> 发送数据: <input type='text' id='name' value="Leaf测试">
 <input type="submit" onclick="login()" />
@@ -12,6 +15,8 @@
 <div>验证码 <span id="code"></span></div>
 </body>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script>
+
+<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
 <script>
 
 function getCode(){
@@ -25,8 +30,11 @@ function getCode(){
             console.log(res)
             let codeArr =''
             if(res.code==='200'){
-
-
+                layer.open({
+                    title: '在线调试',
+                    content: '配置各种参数，试试效果',
+                    time:'3000'
+                });
             }
             $('#code')[0].innerText =codeArr.join('')
 
@@ -110,3 +118,8 @@ function getCode(){
     };
     window.addEventListener("load", init, false);
 </script>
+<style>
+    .background{
+        background:  linear-gradient(to right, #68c4f3, #0e79b4);
+    }
+</style>

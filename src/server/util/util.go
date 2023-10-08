@@ -3,6 +3,7 @@ package util
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/name5566/leaf/log"
 	"math/rand"
 	"net/http"
 	"reflect"
@@ -25,7 +26,7 @@ func GetResults(data interface{}, code string, message string) ([]byte, error) {
 		Data:    data,
 	}
 	res, err := json.Marshal(result)
-
+	log.Debug(string(res))
 	return res, err
 }
 func GetSuccess(data interface{}) ([]byte, error) {
@@ -35,7 +36,7 @@ func GetSuccess(data interface{}) ([]byte, error) {
 		Data:    data,
 	}
 	res, err := json.Marshal(result)
-
+	log.Debug(string(res))
 	return res, err
 }
 func GetError(data interface{}) []byte {
@@ -45,7 +46,7 @@ func GetError(data interface{}) []byte {
 		Data:    data,
 	}
 	res, _ := json.Marshal(result)
-
+	log.Error(string(res))
 	return res
 }
 

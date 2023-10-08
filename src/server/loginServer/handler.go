@@ -3,10 +3,13 @@ package loginServer
 import (
 	"context"
 	"github.com/name5566/leaf/log"
+	"math/rand"
 	"net/http"
+	"regexp"
 	"server/msg"
 	"server/redisClient"
 	"server/util"
+	"strconv"
 	"time"
 )
 
@@ -27,22 +30,35 @@ func init() {
 
 // 获取注册验证码
 func getCodeHandler(w http.ResponseWriter, req *http.Request) {
+	//获取邮箱
+	var data = msg.UserEmail{}
+	if err := util.Unpack(req, &data); err != nil {
+		res := util.GetError(err.Error())
+		w.Write(res)
+		return
+	}
+	regex := regexp.MustCompile(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$`)
+	match := regex.MatchString(data.Email)
 
-	code := util.RandStringBytesMaskSrcUnsafe(4)
-	util.SendMail(code, "18810994068@163.com")
+	//格式错误
+	if !match {
+		res, _ := util.GetResults("邮箱地址错误！", "300", "邮箱地址错误！")
+		w.Write(res)
+		return
+	}
+	//发送验证码
+	code := strconv.Itoa(int(rand.New(rand.NewSource(time.Now().UnixNano())).Int63n(10000000)))
+	util.SendMailCode(code, "18810994068@163.com")
+
 	//保存redis
 	ctx := context.Background()
-	redisClient.Rdb.Set(ctx, code, code, time.Second*300)
+	redisClient.Rdb.Set(ctx, data.Email, code, time.Second*300)
 
 	//转义
 	codeArr := []rune(code)
 	log.Debug(string(codeArr))
-	var recodeArr = make([]rune, 4)
-	for index, val := range codeArr {
-		recodeArr[index] = val + rune(index) + 1
-	}
 
-	res, err := util.GetSuccess(string(recodeArr))
+	res, err := util.GetSuccess(code)
 
 	if err != nil {
 		res = util.GetError(code)
@@ -57,14 +73,15 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 	var data = msg.UserRegister{}
 
 	if err := util.Unpack(req, &data); err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		res := util.GetError(err.Error())
+		w.Write(res)
 		return
 	}
 
 	//fmt.Fprintf(w, "Search:%+v\n", data)
 	res, err := util.GetSuccess(data)
 	if err != nil {
-		res = util.GetError("")
+		res = util.GetError(err.Error())
 	}
 
 	w.Write(res)

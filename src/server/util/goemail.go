@@ -23,21 +23,28 @@ username 邮箱
 password 授权码
 */
 
-func SendMail(code string, to string) {
+func SendMailCode(code string, to string) error {
+
+	return SendMaila(to, fmt.Sprintf("注册码： <b>%s</b>（请不要向其他人透露，注册码有效期5分钟！）", code))
+
+}
+func SendMaila(to string, body string) error {
 
 	// Atoi相当于ParseInt（s，10，0），转换为int类型
 	m := gomail.NewMessage()
 	m.SetHeader("From", "1101434570@qq.com")
 	m.SetHeader("To", to)
 
-	m.SetHeader("Subject", "金仙游戏")
-	m.SetBody("text/html", fmt.Sprintf("注册码： <b>%s</b>（请不要向其他人透露，注册码有效期5分钟！）", code))
+	m.SetHeader("Subject", "金色传说游戏")
+	m.SetBody("text/html", body)
 
 	d := gomail.NewDialer("smtp.qq.com", 587, "1101434570", "briqwxqjkppzffae")
 
 	// Send the email to Bob, Cora and Dan.
 	if err := d.DialAndSend(m); err != nil {
 		log.Debug(err.Error())
+		return err
 	}
+	return nil
 
 }
