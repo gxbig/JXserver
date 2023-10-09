@@ -10,40 +10,74 @@
 
 <h3 style="color: cornflowerblue;">Golang语言社区（www.Golang.Ltd）</h3> 发送数据: <input type='text' id='name' value="Leaf测试">
 <input type="submit" onclick="login()" />
-<input type='text' id='getCode' value="18810994068@163.com">
-<input type="submit" onclick="getCode()" />
+
+
+
 <div>验证码 <span id="code"></span></div>
+
+
+<!--注册弹窗-->
+<form class="layui-form " id="register" style="display: none" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">输入框</label>
+        <div class="layui-input-block">
+            <input type='text' name="email" required  lay-verify="required|email" placeholder="请输入邮箱地址" class="layui-input" value="18810994068@163.com"> </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="getCode">立即提交</button>
+        </div>
+    </div>
+</form>
+
 </body>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script>
 
 <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
 <script>
+    layer.open({
+        type: 1,
+        title:'注册',
+        content: $('#register') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+    });
 
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(getCode)', function(data){
+            var email  = data.field.email
+            $.ajax({
+                url: 'http://127.0.0.1:9000/getCode',
+                data: {email:email},
+                method:'get',
+                error:function (err){
+                    err.then(res=>{
+                        console.log(res,'res')
+                    })
+                    console.log(err,'err')
+                },
+                success: function(res,status){
+                    console.log(res)
+                    let codeArr =''
+                    if(res.code==='200'){
+                        layer.alert('验证码已发送邮箱：'+email, {icon: 1});
+
+                    }
+                },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                dataType: 'json'
+            });
+
+            return false;
+        });
+    });
 function getCode(){
 
     let email = $('#getCode').val()
-    $.ajax({
-        url: 'http://127.0.0.1:9000/getCode',
-        data: {email:email},
-        method:'get',
-        success: function(res,status){
-            console.log(res)
-            let codeArr =''
-            if(res.code==='200'){
-                layer.open({
-                    title: '在线调试',
-                    content: '配置各种参数，试试效果',
-                    time:'3000'
-                });
-            }
-            $('#code')[0].innerText =codeArr.join('')
 
-        },
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        dataType: 'json'
-    });
 
 }
 
