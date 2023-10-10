@@ -17,15 +17,24 @@
 
 
 <!--注册弹窗-->
-<form class="layui-form " id="register" style="display: none" action="">
+<form class="layui-form " id="register" style="display: none;width:425px;margin-right: 70px;padding: 40px "  action="">
     <div class="layui-form-item">
-        <label class="layui-form-label">输入框</label>
+        <label class="layui-form-label">邮箱地址</label>
         <div class="layui-input-block">
-            <input type='text' name="email" required  lay-verify="required|email" placeholder="请输入邮箱地址" class="layui-input" value="18810994068@163.com"> </div>
+            <input type='text'  name="email" required  lay-verify="required|email" placeholder="请输入邮箱地址" class="layui-input" value="18810994068@163.com">
+        </div>
     </div>
     <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="getCode">立即提交</button>
+        <label class="layui-form-label">验证码</label>
+        <div class="layui-input-inline">
+            <input type='text'  name="code" required  lay-verify="required" placeholder="请输入验证码" class="layui-input" value="">
+        </div>
+        <div class=" layui-word-aux"><button type="button" class="layui-btn layui-btn-primary">获取验证码</button></div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block" style="margin-top: 30px">
+            <button class="layui-btn" style="width:200px" lay-submit lay-filter="getCode">提交</button>
         </div>
     </div>
 </form>
@@ -155,5 +164,8 @@ function getCode(){
 <style>
     .background{
         background:  linear-gradient(to right, #68c4f3, #0e79b4);
+    }
+    .register{
+
     }
 </style>

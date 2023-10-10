@@ -29,15 +29,15 @@ func GetResults(data interface{}, code string, message string) ([]byte, error) {
 	log.Debug(string(res))
 	return res, err
 }
-func GetSuccess(data interface{}) ([]byte, error) {
+func GetSuccess(data interface{}) []byte {
 	result := &Results{
 		Message: "请求成功！",
 		Code:    "200",
 		Data:    data,
 	}
-	res, err := json.Marshal(result)
+	res, _ := json.Marshal(result)
 	log.Debug(string(res))
-	return res, err
+	return res
 }
 func GetError(data interface{}) []byte {
 	result := &Results{
