@@ -12,6 +12,7 @@ import (
 	"server/login"
 	"server/loginServer"
 	"server/redisClient"
+	_ "server/sqlClient"
 	"server/threadPool"
 )
 
