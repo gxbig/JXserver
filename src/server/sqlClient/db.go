@@ -49,7 +49,7 @@ func init() {
 	Db = OpenDb()
 }
 func OpenDb() *gorm.DB {
-	db, err := gorm.Open(mysql.Open("user:password@/dbname"), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open("user.sql:password@/dbname"), &gorm.Config{})
 	if err != nil {
 		log.Error("数据库连接失败")
 		panic(err)

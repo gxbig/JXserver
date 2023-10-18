@@ -5,7 +5,7 @@ import "server/msg"
 // 插入数据
 func RegisterInsetUser(user *msg.UserSt) (int, error) {
 
-	query := `insert into user()`
+	query := `insert into user.sql()`
 	result, err := Db.Exec(query)
 	id, _ := result.LastInsertId()
 
@@ -15,7 +15,7 @@ func RegisterInsetUser(user *msg.UserSt) (int, error) {
 // 数据
 func QueryUser(user *msg.UserSt) ([]*msg.UserSt, error) {
 
-	query := `select id from user where email like ? or phone like ?`
+	query := `select id from user.sql where email like ? or phone like ?`
 	result, err := Db.Query(query, user.Email, user.Phone)
 
 	var users []*msg.UserSt
