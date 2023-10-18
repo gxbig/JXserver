@@ -19,7 +19,5 @@ CREATE TABLE jxserver.`user_role` (
                              `deleted_at` datetime DEFAULT NULL,
                              PRIMARY KEY (`id`),
                              KEY `user_role_user_id_IDX` (`user_id`) USING BTREE,
-                             KEY `user_role_FK_1` (`game_role_id`),
-                             CONSTRAINT `user_role_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-                             CONSTRAINT `user_role_FK_1` FOREIGN KEY (`game_role_id`) REFERENCES `game_role` (`id`)
+                             KEY `user_role_FK_1` (`game_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
