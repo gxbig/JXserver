@@ -1,9 +1,9 @@
 package sqlClient
 
 import (
-	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/name5566/leaf/log"
+	"gorm.io/driver/mysql"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"time"
@@ -42,20 +42,25 @@ func main() {
 	db.Delete(&product, 1)
 }
 
-var Db *sql.DB
+var Db *gorm.DB
 
 func init() {
 	log.Debug("init db")
 	Db = OpenDb()
 }
-func OpenDb() *sql.DB {
-	db, err := sql.Open("mysql", "user:password@/dbname")
+func OpenDb() *gorm.DB {
+	db, err := gorm.Open(mysql.Open("user:password@/dbname"), &gorm.Config{})
 	if err != nil {
 		log.Error("数据库连接失败")
 		panic(err)
 	}
-	db.SetConnMaxLifetime(time.Minute * 2)
-	db.SetMaxOpenConns(10)
-	db.SetMaxIdleConns(10)
+	sqlDB, err := db.DB()
+	if err != nil {
+		log.Error(err.Error())
+	}
+	sqlDB.SetMaxOpenConns(100)                 // 设置数据库的最大打开连接数
+	sqlDB.SetMaxIdleConns(100)                 // 设置最大空闲连接数
+	sqlDB.SetConnMaxLifetime(10 * time.Second) // 设置空闲连接最大存活时间
+
 	return db
 }
