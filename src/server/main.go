@@ -33,6 +33,20 @@ func main() {
 
 	}()
 
+	//user := &msg.User{Id: 1}
+	//err1 := user.RegisterInsetUser()
+	//if err1 != nil {
+	//	log.Error(err1.Error())
+	//}
+	//err := user.DeleteUser()
+	//if err != nil {
+	//	log.Error(err.Error())
+	//}
+	//queryUser, err := user.QueryUser()
+	//if err != nil {
+	//	log.Error(err.Error())
+	//}
+	//log.Debug(strconv.Itoa(queryUser.Id))
 	//val, err := redisClient.RedisClient.Get(ctx, "8").Result()
 	//ctx := context.Background()
 	//

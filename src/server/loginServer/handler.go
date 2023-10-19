@@ -8,7 +8,6 @@ import (
 	"regexp"
 	"server/msg"
 	"server/redisClient"
-	"server/sqlClient"
 	"server/util"
 	"strconv"
 	"strings"
@@ -69,7 +68,7 @@ func getCodeHandler(w http.ResponseWriter, req *http.Request) {
 
 // 注册
 func registerHandler(w http.ResponseWriter, req *http.Request) {
-	var data = &msg.UserSt{}
+	var data = &msg.User{}
 
 	//获取数据
 	if err := util.Unpack(req, data); err != nil {
@@ -91,13 +90,13 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	//校验8位密码
-	LoginPW := strings.TrimSpace(data.LoginPW)
+	LoginPW := strings.TrimSpace(data.Pw)
 	if strings.Count(LoginPW, "") < 8 {
 		res := util.GetError("请输入最少八位数密码！")
 		w.Write(res)
 		return
 	}
-
+	data.Pw = LoginPW
 	//校验验证码
 	result, err := redisClient.Rdb.Get(ctx, data.Email).Result()
 	if err != nil {
@@ -110,17 +109,18 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 		w.Write(res)
 		return
 	}
+	data.Account = util.RandStringBytesMaskSrcUnsafe(12)
 
 	//创建sessionsId
 	sessionId := util.RandStringBytesMaskSrcUnsafe(12)
 	//用户信息插入数据库
-	id, err := sqlClient.RegisterInsetUser(data)
-	data.Id = id
+	err1 := data.RegisterInsetUser()
 	if err != nil {
-		res := util.GetError(err.Error())
+		res := util.GetError(err1.Error())
 		w.Write(res)
 		return
 	}
+	//
 
 	//用户信息放到内存或redis
 	util.SetSessionIdUser(sessionId, data)
@@ -135,7 +135,7 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 // 登录
 func loginHandler(w http.ResponseWriter, r *http.Request) {
 
-	var data = &msg.UserSt{}
+	var data = &msg.User{}
 
 	//获取数据
 	if err := util.Unpack(r, data); err != nil {
@@ -155,7 +155,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	//校验8位密码
-	LoginPW := strings.TrimSpace(data.LoginPW)
+	LoginPW := strings.TrimSpace(data.Pw)
 	if strings.Count(LoginPW, "") < 8 {
 		res := util.GetError("请输入最少八位数密码！")
 		w.Write(res)
@@ -165,16 +165,16 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	//创建sessionsId
 	sessionId := util.RandStringBytesMaskSrcUnsafe(12)
 	//数据库查询用户信息
-	users, err := sqlClient.QueryUser(data)
+	//users, err := sqlClient.QueryUser(data)
 
-	if err != nil {
-		res := util.GetError(err.Error())
-		w.Write(res)
-		return
-	}
+	//if err != nil {
+	//	res := util.GetError(err.Error())
+	//	w.Write(res)
+	//	return
+	//}
 
-	//用户信息放到内存或redis
-	util.SetSessionIdUser(sessionId, users[0])
+	////用户信息放到内存或redis
+	//util.SetSessionIdUser(sessionId, users[0])
 
 	//fmt.Fprintf(w, "Search:%+v\n", data)
 	res := util.GetSuccess(sessionId)
@@ -184,7 +184,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 
 // 重置密码
 func resetPasswordHandler(w http.ResponseWriter, r *http.Request) {
-	var data = &msg.UserSt{}
+	var data = &msg.User{}
 
 	//获取数据
 	if err := util.Unpack(r, data); err != nil {
@@ -206,7 +206,7 @@ func resetPasswordHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	//校验8位密码
-	LoginPW := strings.TrimSpace(data.LoginPW)
+	LoginPW := strings.TrimSpace(data.Pw)
 	if strings.Count(LoginPW, "") < 8 {
 		res := util.GetError("请输入最少八位数密码！")
 		w.Write(res)
@@ -227,13 +227,13 @@ func resetPasswordHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//用户信息插入数据库
-	id, err := sqlClient.RegisterInsetUser(data)
-	data.Id = id
-	if err != nil {
-		res := util.GetError(err.Error())
-		w.Write(res)
-		return
-	}
+	//id, err := sqlClient.RegisterInsetUser(data)
+	//data.Id = id
+	//if err != nil {
+	//	res := util.GetError(err.Error())
+	//	w.Write(res)
+	//	return
+	//}
 
 	//fmt.Fprintf(w, "Search:%+v\n", data)
 	res := util.GetSuccess("重置密码成功！")

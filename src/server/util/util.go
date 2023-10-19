@@ -59,6 +59,7 @@ func (f HandlerFunc) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")  //允许访问所有域
 	w.Header().Add("Access-Control-Allow-Headers", "*") //header的类型
 	w.Header().Set("content-type", "application/json")
+	log.Debug(fmt.Sprintf("【%s】%s %s %s", time.Now().Format("2006-01-02 15:04:05"), r.RemoteAddr, r.Method, r.RequestURI))
 	f(w, r)
 }
 

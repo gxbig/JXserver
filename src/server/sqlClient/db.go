@@ -1,11 +1,12 @@
 package sqlClient
 
 import (
+	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/name5566/leaf/log"
 	"gorm.io/driver/mysql"
-	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 	"time"
 )
 
@@ -15,44 +16,22 @@ type Product struct {
 	Price uint
 }
 
-func main() {
-	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
-	if err != nil {
-		panic("failed to connect database")
-	}
-
-	// Migrate the schema
-	db.AutoMigrate(&Product{})
-
-	// Create
-	db.Create(&Product{Code: "D42", Price: 100})
-
-	// Read
-	var product Product
-	db.First(&product, 1)                 // find product with integer primary key
-	db.First(&product, "code = ?", "D42") // find product with code D42
-
-	// Update - update product's price to 200
-	db.Model(&product).Update("Price", 200)
-	// Update - update multiple fields
-	db.Model(&product).Updates(Product{Price: 200, Code: "F42"}) // non-zero fields
-	db.Model(&product).Updates(map[string]interface{}{"Price": 200, "Code": "F42"})
-
-	// Delete - delete product
-	db.Delete(&product, 1)
-}
-
-var Db *gorm.DB
+var DB *gorm.DB
 
 func init() {
 	log.Debug("init db")
-	Db = OpenDb()
+	DB = OpenDb()
 }
 func OpenDb() *gorm.DB {
-	db, err := gorm.Open(mysql.Open("user.sql:password@/dbname"), &gorm.Config{})
+	dns := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		"root", "@Gx.1101434570", "127.0.0.1", "3308", "jxserver")
+
+	db, err := gorm.Open(mysql.Open(dns), &gorm.Config{ //建立连接时指定打印info级别的sql
+		Logger: logger.Default.LogMode(logger.Info), //配置日志级别，打印出所有的sql
+	})
 	if err != nil {
 		log.Error("数据库连接失败")
-		panic(err)
+		log.Error(err.Error())
 	}
 	sqlDB, err := db.DB()
 	if err != nil {

@@ -12,16 +12,6 @@ type UserEmail struct {
 	Email string `json:"email"` // 邮箱
 }
 
-// 注册协议
-type UserSt struct {
-	Id        int    `json:"id"`
-	LoginName string `json:"loginName"` // 用户名
-	LoginPW   string `json:"loginPW"`   // 密码
-	Code      string `json:"code"`      //验证码
-	Phone     string `json:"phone"`     // 手机号
-	Email     string `json:"email"`     // 邮箱
-}
-
 // 玩家有角色的情况
 type RoleSt struct {
 	ID       string `json:"id"` // 账号ID

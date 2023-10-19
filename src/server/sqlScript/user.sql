@@ -30,3 +30,12 @@ CREATE TABLE jxserver.`user` (
                         UNIQUE KEY `user_un_zfb` (`zfb`),
                         UNIQUE KEY `user_un_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE jxserver.`user` CHANGE `postal-code` postal_code varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '邮政编码';
+ALTER TABLE jxserver.`user` MODIFY COLUMN name varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '姓名';
+ALTER TABLE jxserver.`user` MODIFY COLUMN email varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '邮箱地址';
+
+ALTER TABLE jxserver.`user` MODIFY COLUMN gender enum('0','1',"") CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '性别';
+ALTER TABLE jxserver.`user` MODIFY COLUMN date_of_birth varchar(20) NULL COMMENT '出生日期';
+ALTER TABLE jxserver.`user` MODIFY COLUMN phone varchar(20) NULL COMMENT '手机号';
+CREATE INDEX idx_deleted_at USING BTREE ON jxserver.`user` (deleted_at);
