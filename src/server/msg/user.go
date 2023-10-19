@@ -1,8 +1,10 @@
 package msg
 
 import (
+	"database/sql"
 	"gorm.io/gorm"
 	"server/sqlClient"
+	"time"
 )
 
 // 用户表
@@ -25,7 +27,9 @@ type User struct {
 	Pw          string `json:"pw" gorm:"column:pw"`                            // 密码
 	Phone       string `json:"phone" gorm:"column:phone"`                      // 手机号
 	Email       string `json:"email"  gorm:"column:email"`                     // 邮箱
-
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
+	DeletedAt   sql.NullTime `gorm:"index"`
 }
 
 func (user *User) TableName() string {

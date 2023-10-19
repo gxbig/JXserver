@@ -60,7 +60,7 @@ func getCodeHandler(w http.ResponseWriter, req *http.Request) {
 	codeArr := []rune(code)
 	log.Debug(string(codeArr))
 
-	res := util.GetSuccess(code)
+	res := util.GetSuccess("验证码发送成功！")
 
 	w.Write(res)
 
@@ -98,12 +98,8 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 	}
 	data.Pw = LoginPW
 	//校验验证码
-	result, err := redisClient.Rdb.Get(ctx, data.Email).Result()
-	if err != nil {
-		res := util.GetError(err.Error())
-		w.Write(res)
-		return
-	}
+	result := redisClient.Rdb.Get(ctx, data.Email).Val()
+
 	if result != code {
 		res := util.GetError("请输入正确的验证码")
 		w.Write(res)
@@ -115,7 +111,7 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 	sessionId := util.RandStringBytesMaskSrcUnsafe(12)
 	//用户信息插入数据库
 	err1 := data.RegisterInsetUser()
-	if err != nil {
+	if err1 != nil {
 		res := util.GetError(err1.Error())
 		w.Write(res)
 		return
