@@ -9,8 +9,8 @@ import (
 	"server/conf"
 	"server/game"
 	"server/gate"
+	"server/httpServer"
 	"server/login"
-	"server/loginServer"
 	"server/redisClient"
 	_ "server/sqlClient"
 	"server/threadPool"
@@ -18,7 +18,11 @@ import (
 
 func startServer() {
 	log.Debug("启动http登录服务！")
-	http.ListenAndServe("0.0.0.0:9000", loginServer.Mux)
+	err := http.ListenAndServe("0.0.0.0:9000", httpServer.Mux)
+	if err != nil {
+
+		log.Error(err.Error())
+	}
 }
 func main() {
 	//启动http登录服务！

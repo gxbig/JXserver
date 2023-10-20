@@ -1,7 +1,6 @@
-package loginServer
+package httpServer
 
 import (
-	"context"
 	"github.com/name5566/leaf/log"
 	"math/rand"
 	"net/http"
@@ -14,11 +13,8 @@ import (
 	"time"
 )
 
-var Mux *http.ServeMux
-var ctx = context.Background()
-
 func init() {
-	Mux = http.NewServeMux()
+
 	login := util.HandlerFunc(loginHandler)
 	Mux.Handle("/login", login)
 
@@ -36,7 +32,7 @@ func getCodeHandler(w http.ResponseWriter, req *http.Request) {
 	var data = msg.UserEmail{}
 	if err := util.Unpack(req, &data); err != nil {
 		res := util.GetError(err.Error())
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 	regex := regexp.MustCompile(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$`)
@@ -45,7 +41,7 @@ func getCodeHandler(w http.ResponseWriter, req *http.Request) {
 	//格式错误
 	if !match {
 		res := util.GetError("邮箱地址错误！")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 
@@ -55,13 +51,17 @@ func getCodeHandler(w http.ResponseWriter, req *http.Request) {
 
 	if queryUser.Id != 0 {
 		res := util.GetError("邮箱已注册！")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 
 	//发送验证码
 	code := strconv.Itoa(int(rand.New(rand.NewSource(time.Now().UnixNano())).Int63n(10000000)))
-	util.SendMailCode(code, "18810994068@163.com")
+	err := util.SendMailCode(code, "18810994068@163.com")
+	if err != nil {
+		log.Error(err.Error())
+		return
+	}
 
 	//保存redis
 
@@ -73,7 +73,7 @@ func getCodeHandler(w http.ResponseWriter, req *http.Request) {
 
 	res := util.GetSuccess("验证码发送成功！")
 
-	w.Write(res)
+	util.Write(w, res)
 
 }
 
@@ -84,7 +84,7 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 	//获取数据
 	if err := util.Unpack(req, data); err != nil {
 		res := util.GetError(err.Error())
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 
@@ -97,14 +97,14 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 	//格式错误
 	if !match {
 		res := util.GetError("邮箱地址错误！")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 	//校验8位密码
 	LoginPW := strings.TrimSpace(data.Pw)
 	if strings.Count(LoginPW, "") < 8 {
 		res := util.GetError("请输入最少八位数密码！")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 	data.Pw = LoginPW
@@ -113,7 +113,7 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 
 	if result != code {
 		res := util.GetError("请输入正确的验证码")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 	data.Account = util.RandStringBytesMaskSrcUnsafe(12)
@@ -124,7 +124,7 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 	err1 := data.RegisterInsetUser()
 	if err1 != nil {
 		res := util.GetError(err1.Error())
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 	//
@@ -134,7 +134,7 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 
 	//fmt.Fprintf(w, "Search:%+v\n", data)
 	res := util.GetSuccess(sessionId)
-	w.Write(res)
+	util.Write(w, res)
 
 }
 
@@ -146,7 +146,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	//获取数据
 	if err := util.Unpack(r, data); err != nil {
 		res := util.GetError(err.Error())
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 
@@ -157,14 +157,14 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	//格式错误
 	if !match {
 		res := util.GetError("邮箱地址错误！")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 	//校验8位密码
 	LoginPW := strings.TrimSpace(data.Pw)
 	if strings.Count(LoginPW, "") < 8 {
 		res := util.GetError("请输入最少八位数密码！")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 
@@ -175,7 +175,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 
 	//if err != nil {
 	//	res := util.GetError(err.Error())
-	//	w.Write(res)
+	//	util.Write(w,res)
 	//	return
 	//}
 
@@ -185,7 +185,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprintf(w, "Search:%+v\n", data)
 	res := util.GetSuccess(sessionId)
 
-	w.Write(res)
+	util.Write(w, res)
 }
 
 // 重置密码
@@ -195,7 +195,7 @@ func resetPasswordHandler(w http.ResponseWriter, r *http.Request) {
 	//获取数据
 	if err := util.Unpack(r, data); err != nil {
 		res := util.GetError(err.Error())
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 
@@ -208,14 +208,14 @@ func resetPasswordHandler(w http.ResponseWriter, r *http.Request) {
 	//格式错误
 	if !match {
 		res := util.GetError("邮箱地址错误！")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 	//校验8位密码
 	LoginPW := strings.TrimSpace(data.Pw)
 	if strings.Count(LoginPW, "") < 8 {
 		res := util.GetError("请输入最少八位数密码！")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 
@@ -223,12 +223,12 @@ func resetPasswordHandler(w http.ResponseWriter, r *http.Request) {
 	result, err := redisClient.Rdb.Get(ctx, data.Email).Result()
 	if err != nil {
 		res := util.GetError(err.Error())
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 	if result != code {
 		res := util.GetError("请输入正确的验证码")
-		w.Write(res)
+		util.Write(w, res)
 		return
 	}
 
@@ -237,12 +237,12 @@ func resetPasswordHandler(w http.ResponseWriter, r *http.Request) {
 	//data.Id = id
 	//if err != nil {
 	//	res := util.GetError(err.Error())
-	//	w.Write(res)
+	//	util.Write(w,res)
 	//	return
 	//}
 
 	//fmt.Fprintf(w, "Search:%+v\n", data)
 	res := util.GetSuccess("重置密码成功！")
 
-	w.Write(res)
+	util.Write(w, res)
 }
