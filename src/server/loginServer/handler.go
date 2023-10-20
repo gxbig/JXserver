@@ -32,7 +32,6 @@ func init() {
 
 // 获取注册验证码
 func getCodeHandler(w http.ResponseWriter, req *http.Request) {
-	util.SetCookie(w, "123456789")
 	//获取邮箱
 	var data = msg.UserEmail{}
 	if err := util.Unpack(req, &data); err != nil {
@@ -135,8 +134,6 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 
 	//fmt.Fprintf(w, "Search:%+v\n", data)
 	res := util.GetSuccess(sessionId)
-
-	util.SetCookie(w, sessionId)
 	w.Write(res)
 
 }

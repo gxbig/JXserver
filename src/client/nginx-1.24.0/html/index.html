@@ -62,6 +62,7 @@
 
 </body>
 <script src="./jquery-3.7.0.min.js"></script>
+<script src="./cdn.staticfile.org_jquery-cookie_1.4.1_jquery.cookie.min.js"></script>
 <!--<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>-->
 <script src="./layui/layui.js"></script>
 <script>
@@ -175,6 +176,8 @@
 
                     if (res.code === '200') {
                         layer.msg('注册成功', {icon: 1});
+                        //设置cookie
+                        $.cookie("sessionId", res.data, { expires: 30 })
                     }else {
                         layer.msg(res.data||res.message, {icon: 2});
                     }
