@@ -32,6 +32,7 @@ func init() {
 
 // 获取注册验证码
 func getCodeHandler(w http.ResponseWriter, req *http.Request) {
+	util.SetCookie(w, "123456789")
 	//获取邮箱
 	var data = msg.UserEmail{}
 	if err := util.Unpack(req, &data); err != nil {
@@ -48,6 +49,17 @@ func getCodeHandler(w http.ResponseWriter, req *http.Request) {
 		w.Write(res)
 		return
 	}
+
+	//重复校验
+	user := msg.User{Email: data.Email}
+	queryUser := user.QueryUser()
+
+	if queryUser.Id != 0 {
+		res := util.GetError("邮箱已注册！")
+		w.Write(res)
+		return
+	}
+
 	//发送验证码
 	code := strconv.Itoa(int(rand.New(rand.NewSource(time.Now().UnixNano())).Int63n(10000000)))
 	util.SendMailCode(code, "18810994068@163.com")
@@ -108,7 +120,7 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 	data.Account = util.RandStringBytesMaskSrcUnsafe(12)
 
 	//创建sessionsId
-	sessionId := util.RandStringBytesMaskSrcUnsafe(12)
+	sessionId := util.RandStringBytesMaskSrcUnsafe(24)
 	//用户信息插入数据库
 	err1 := data.RegisterInsetUser()
 	if err1 != nil {
@@ -124,6 +136,7 @@ func registerHandler(w http.ResponseWriter, req *http.Request) {
 	//fmt.Fprintf(w, "Search:%+v\n", data)
 	res := util.GetSuccess(sessionId)
 
+	util.SetCookie(w, sessionId)
 	w.Write(res)
 
 }

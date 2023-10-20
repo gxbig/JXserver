@@ -18,7 +18,7 @@ import (
 
 func startServer() {
 	log.Debug("启动http登录服务！")
-	http.ListenAndServe(":9000", loginServer.Mux)
+	http.ListenAndServe("0.0.0.0:9000", loginServer.Mux)
 }
 func main() {
 	//启动http登录服务！

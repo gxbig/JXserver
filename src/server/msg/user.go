@@ -1,7 +1,6 @@
 package msg
 
 import (
-	"database/sql"
 	"gorm.io/gorm"
 	"server/sqlClient"
 	"time"
@@ -9,7 +8,6 @@ import (
 
 // 用户表
 type User struct {
-	gorm.Model
 	Id          int    `json:"id" gorm:"column:id"`
 	Age         int    `json:"loginName" gorm:"column:age"`                    // 年龄
 	Gender      string `json:"gender" gorm:"column:gender;type:enum('0','1')"` // 性别
@@ -29,7 +27,7 @@ type User struct {
 	Email       string `json:"email"  gorm:"column:email"`                     // 邮箱
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
-	DeletedAt   sql.NullTime `gorm:"index"`
+	DeletedAt   gorm.DeletedAt `gorm:"index"`
 }
 
 func (user *User) TableName() string {
@@ -44,10 +42,10 @@ func (user *User) RegisterInsetUser() error {
 }
 
 // 数据
-func (user *User) QueryUser() (*User, error) {
+func (user *User) QueryUser() *User {
 	queryUser := &User{}
-	result := sqlClient.DB.Where(user).First(queryUser)
-	return queryUser, result.Error
+	sqlClient.DB.Where(user).First(queryUser)
+	return queryUser
 }
 
 // 更新密码数据

@@ -39,3 +39,9 @@ ALTER TABLE jxserver.`user` MODIFY COLUMN gender enum('0','1',"") CHARACTER SET 
 ALTER TABLE jxserver.`user` MODIFY COLUMN date_of_birth varchar(20) NULL COMMENT '出生日期';
 ALTER TABLE jxserver.`user` MODIFY COLUMN phone varchar(20) NULL COMMENT '手机号';
 CREATE INDEX idx_deleted_at USING BTREE ON jxserver.`user` (deleted_at);
+
+ALTER TABLE jxserver.`user` DROP KEY user_un;
+ALTER TABLE jxserver.`user` DROP KEY user_phone;
+ALTER TABLE jxserver.`user` DROP KEY user_un_qq;
+ALTER TABLE jxserver.`user` DROP KEY user_un_wx;
+ALTER TABLE jxserver.`user` DROP KEY user_un_zfb;

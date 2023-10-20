@@ -63,6 +63,19 @@ func (f HandlerFunc) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	f(w, r)
 }
 
+// 设置cookie
+func SetCookie(w http.ResponseWriter, sessionId string) {
+	//设置cookie
+	cookies := &http.Cookie{
+		Name:     "sessionId",
+		Value:    sessionId,
+		Expires:  time.Now().Add(time.Hour * 24 * 30),
+		Path:     "/",
+		HttpOnly: true,
+	}
+	http.SetCookie(w, cookies)
+}
+
 // Unpack 从 HTTP 请求 req 的参数中提取数据填充到 ptr 指向结构体的各个字段
 func Unpack(req *http.Request, ptr interface{}) error {
 	if err := req.ParseForm(); err != nil {
