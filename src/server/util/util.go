@@ -60,6 +60,21 @@ func (f HandlerFunc) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Access-Control-Allow-Headers", "*") //header的类型
 	w.Header().Set("content-type", "application/json")
 	log.Debug(fmt.Sprintf("【%s】%s %s %s", time.Now().Format("2006-01-02 15:04:05"), r.RemoteAddr, r.Method, r.RequestURI))
+	if r.Method == "OPTIONS" {
+		res := GetSuccess("请求成功")
+
+		Write(w, res)
+		return
+	}
+
+	//校验sessions
+	sessionId := r.Header.Get("Token")
+	user := GetSessionIdUser(sessionId)
+	if user == nil {
+		res, _ := GetResults("登录失效", "502", "登录失效")
+		Write(w, res)
+		return
+	}
 	f(w, r)
 }
 

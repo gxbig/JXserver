@@ -1,3 +1,4 @@
+/*用户角色*/
 package msg
 
 import (
@@ -28,15 +29,15 @@ func (userRole *UserRole) TableName() string {
 	return "user_role"
 }
 
-// 数据
-func (userRole *UserRole) QueryUserRole() *UserRole {
+// 获取第一个数据
+func (userRole *UserRole) GetUserRole() *UserRole {
 	queryUser := &UserRole{}
 	sqlClient.DB.Where(userRole).First(queryUser)
 	return queryUser
 }
 
-// 数据
-func (userRole *UserRole) QueryUserRoles() []UserRole {
+// 获取所有用户角色数据
+func (userRole *UserRole) GetUserRoles() []UserRole {
 	var queryUser []UserRole
 	sqlClient.DB.Where(userRole).Find(&queryUser)
 	return queryUser
