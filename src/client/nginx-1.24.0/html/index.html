@@ -145,10 +145,11 @@
     // });
     var url = "http://localhost:9000"
 
+    var  layerIndex = 0
     //打开注册页面
     function openR() {
         pageType = "register"
-        layer.open({
+        layerIndex =    layer.open({
             type: 1,
             title: '注册',
             content: $('#register') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
@@ -158,7 +159,7 @@
     //打开重置密码页面
     function resetPw() {
         pageType = "resetPw"
-        layer.open({
+        layerIndex =  layer.open({
             type: 1,
             title: '重置密码',
             content: $('#resetPwModal') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
@@ -280,6 +281,8 @@
                         //设置cookie
                         $.cookie("sessionId", res.data, {expires: 30})
                         getUser()
+                        countdown = 0
+                        layer.close(layerIndex)
                     } else {
                         layer.msg(res.data || res.message, {icon: 2});
                     }
@@ -308,6 +311,7 @@
                     if (res.code === '200') {
                         layer.msg('登录成功', {icon: 1});
                         //设置cookie
+                        countdown = 0
                         $.cookie("sessionId", res.data, {expires: 30})
                         getUser()
                     } else {
@@ -336,6 +340,8 @@
                 success: function (res, status) {
                     if (res.code === '200') {
                         layer.msg('重置密码成功，请重新登录', {icon: 1});
+                        layer.close(layerIndex)
+                        countdown = 0
                     } else {
                         layer.msg(res.data || res.message, {icon: 2});
                     }
