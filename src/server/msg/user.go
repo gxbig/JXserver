@@ -10,7 +10,7 @@ import (
 type User struct {
 	Id          int        `json:"id" gorm:"column:id"`
 	UserRoles   []UserRole `json:"userRoles"  gorm:"-"`
-	Age         int        `json:"loginName" gorm:"column:age"`                    // 年龄
+	Age         int        `json:"age" gorm:"column:age"`                          // 年龄
 	Gender      string     `json:"gender" gorm:"column:gender;type:enum('0','1')"` // 性别
 	Code        string     `json:"code" gorm:"-"`                                  //验证码
 	Name        string     `json:"name" gorm:"column:name"`                        // 姓名

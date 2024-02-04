@@ -21,3 +21,4 @@ CREATE TABLE jxserver.`user_role` (
                              KEY `user_role_user_id_IDX` (`user_id`) USING BTREE,
                              KEY `user_role_FK_1` (`game_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ALTER TABLE jxserver.user_role ADD user_name varchar(100) NULL COMMENT '用户角色名称';
