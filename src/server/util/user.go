@@ -35,6 +35,9 @@ func GetSessionIdUser(SessionId string) *msg.User {
 
 	//从redis获取
 	rUserr := redisClient.Rdb.HGet(ctx, "SessionIdToUser", SessionId).Val()
+	if rUserr == "" {
+		return nil
+	}
 	rUser := &msg.User{}
 	_ = json.Unmarshal([]byte(rUserr), rUser)
 	if rUser != nil {

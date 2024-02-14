@@ -21,6 +21,7 @@ type UserRole struct {
 	SpellDamage     int    `json:"spellDamage"`                     //法术伤害
 	SpellDefense    int    `json:"spellDefense"`                    //法术防御
 	PhysicalDefense int    `json:"physicalDefense"`                 //物理防御
+	ServerCode      int    `json:"serverCode"`                      //服务器代码
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
 	DeletedAt       gorm.DeletedAt `gorm:"index"`
@@ -34,6 +35,13 @@ func (userRole *UserRole) TableName() string {
 func (userRole *UserRole) GetUserRole() *UserRole {
 	queryUser := &UserRole{}
 	sqlClient.DB.Where(userRole).First(queryUser)
+	return queryUser
+}
+
+// 获取所有用户角色数据
+func (userRole *UserRole) GetUserRolesByUserId(id int) []UserRole {
+	var queryUser []UserRole
+	sqlClient.DB.Where("user_id in (?)", id).Find(&queryUser)
 	return queryUser
 }
 

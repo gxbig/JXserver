@@ -1,11 +1,11 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="keywords"
-          content="挣钱的游戏,金色传说,游戏,黄金,打工,荣耀,工会,联盟,挣钱,页游，好玩，挣钱游戏,收益,定义游戏">
+          content="挣钱的游戏,金色传说,游戏,黄金,打工,荣耀,工会,联盟,挣钱,页游，好玩，挣钱游戏,收益,定义游戏，登录">
     <title>金色传说游戏-登录</title>
     <!--    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">-->
+    <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./layui/css/layui.css">
-
 </head>
 <body class="background">
 <!--登录-->
@@ -337,7 +337,7 @@
                         //设置cookie
                         countdown = 0
                         $.cookie("sessionId", res.data, {expires: 30})
-                        getUser()
+                        window.location.href='/selectSever.html'
                     } else {
                         layer.msg(res.data || res.message, {icon: 2});
                     }
@@ -380,30 +380,6 @@
         });
     });
 
-    //获取人员信息
-    function getUser() {
-
-        $.ajax({
-            url: url + '/getUser',
-            method: 'get',
-            error: function (err) {
-
-            },
-            success: function (res, status) {
-                console.log(res)
-                if (res.code === '200') {
-                    //获取
-                } else {
-                    layer.msg(res.data || res.message, {icon: 2});
-                }
-            },
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                "token": $.cookie("sessionId")
-            },
-            dataType: 'json'
-        });
-    }
 
     var wsUri = "ws://127.0.0.1:3564/?{'new':3}";
     var json;
