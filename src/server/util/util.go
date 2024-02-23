@@ -67,7 +67,7 @@ func (f HandlerFunc) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if r.RemoteAddr == "/login" || r.RemoteAddr == "/register" || r.RemoteAddr == "/getCode" || r.RemoteAddr == "/resetPassword" {
+	if !(r.RequestURI == "/login" || r.RequestURI == "/register" || r.RequestURI == "/getCode" || r.RequestURI == "/resetPassword") {
 		//校验sessions
 		sessionId := r.Header.Get("Token")
 		user := GetSessionIdUser(sessionId)
@@ -77,7 +77,6 @@ func (f HandlerFunc) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-
 	f(w, r)
 }
 

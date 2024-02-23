@@ -23,3 +23,7 @@ CREATE TABLE jxserver.`user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ALTER TABLE jxserver.user_role ADD user_name varchar(100) NULL COMMENT '用户角色名称';
 ALTER TABLE jxserver.user_role ADD server_code INT NULL COMMENT '服务器代码';
+ALTER TABLE jxserver.user_role ADD login_date DATETIME NULL COMMENT '登录时间';
+ALTER TABLE jxserver.user_role ADD role_type varchar(100) NOT NULL COMMENT '角色类型';
+
+

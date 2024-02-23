@@ -8,20 +8,22 @@ import (
 )
 
 type UserRole struct {
-	Id              int    `json:"id" gorm:"column:id"`
-	UserName        string `json:"userName" gorm:"column:userName"` //用户角色名称
-	UserId          int    `json:"userId"`                          //用户id
-	GameRoleId      int    `json:"gameRoleId"`                      //角色id
-	Grade           int    `json:"grade"`                           //等级
-	Attack          int    `json:"attack"`                          //攻击力
-	Hp              int    `json:"hp"`                              //生命值
-	Mp              int    `json:"mp"`                              //法术值
-	Penetrate       int    `json:"penetrate"`                       //穿透
-	AvoidInjury     int    `json:"avoidInjury"`                     //免伤
-	SpellDamage     int    `json:"spellDamage"`                     //法术伤害
-	SpellDefense    int    `json:"spellDefense"`                    //法术防御
-	PhysicalDefense int    `json:"physicalDefense"`                 //物理防御
-	ServerCode      int    `json:"serverCode"`                      //服务器代码
+	Id              int       `json:"id" gorm:"column:id"`
+	UserName        string    `json:"userName" gorm:"column:userName"` //用户角色名称
+	UserId          int       `json:"userId"`                          //用户id
+	GameRoleId      int       `json:"gameRoleId"`                      //角色id
+	Grade           int       `json:"grade"`                           //等级
+	Attack          int       `json:"attack"`                          //攻击力
+	Hp              int       `json:"hp"`                              //生命值
+	Mp              int       `json:"mp"`                              //法术值
+	Penetrate       int       `json:"penetrate"`                       //穿透
+	AvoidInjury     int       `json:"avoidInjury"`                     //免伤
+	SpellDamage     int       `json:"spellDamage"`                     //法术伤害
+	SpellDefense    int       `json:"spellDefense"`                    //法术防御
+	PhysicalDefense int       `json:"physicalDefense"`                 //物理防御
+	ServerCode      int       `json:"serverCode"`                      //服务器代码
+	LoginDate       time.Time `json:"loginDate"`                       //登录时间
+	RoleType        string    `json:"roleType"`                        //角色类型
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
 	DeletedAt       gorm.DeletedAt `gorm:"index"`
@@ -41,7 +43,7 @@ func (userRole *UserRole) GetUserRole() *UserRole {
 // 获取所有用户角色数据
 func (userRole *UserRole) GetUserRolesByUserId(id int) []UserRole {
 	var queryUser []UserRole
-	sqlClient.DB.Where("user_id in (?)", id).Find(&queryUser)
+	sqlClient.DB.Where("user_id in (?)", id).Order("login_date").Find(&queryUser)
 	return queryUser
 }
 

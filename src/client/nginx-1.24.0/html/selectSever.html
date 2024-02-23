@@ -39,17 +39,18 @@
             left: 0;
             right: 0;
             font-size: 20px;
-            padding: 20px ;
+            padding: 20px;
             z-index: 10;
         }
 
-        .wrap .text .title{
-            margin-right:10px;
+        .wrap .text .title {
+            margin-right: 10px;
             padding: 10px;
             border: 1px solid #d6d2d2;
             background: #f6f6f6;
             cursor: pointer;
         }
+
         .l {
             position: fixed;
             width: 200px;
@@ -60,11 +61,13 @@
             background: #fff;
             overflow: auto;
         }
-        .l .li{
-            border-bottom: 1px  solid #ded9d9;
+
+        .l .li {
+            border-bottom: 1px solid #ded9d9;
         }
-        .l .active{
-            border-left:  4px solid #1E9FFF;
+
+        .l .active {
+            border-left: 4px solid #1E9FFF;
         }
 
         .l .l-text {
@@ -89,7 +92,6 @@
         }
 
 
-
         .wrap .layui-badge-dot {
             margin-right: 2px;
             width: 10px;
@@ -107,35 +109,42 @@
             height: 100%;
 
         }
-        .layout{
+
+        .layout {
             padding: 20px;
         }
-        .layout .li{
+
+        .layout .li {
             line-height: 40px;
             padding: 15px;
             text-align: center;
             font-size: 18px;
             display: inline-block;
             width: 150px;
-            border-radius: 5px  5px  5px  5px;
+            border-radius: 5px 5px 5px 5px;
             background: #a0e1db;
         }
+
         .wrap .li:hover {
             background: #1E9FFF;
             cursor: pointer;
         }
-        .tip{
+
+        .tip {
             float: right;
         }
-        .tip-text{
+
+        .tip-text {
             margin-right: 10px;
         }
-        .red{
-            background:red;
+
+        .red {
+            background: red;
 
         }
-        .stop{
-            background:#999;
+
+        .stop {
+            background: #999;
         }
     </style>
 </head>
@@ -144,10 +153,11 @@
     <div class="text">
         <span class="title" id="title"><i class="layui-icon">&#xe65c;</i>返回</span>
         <span>选择服务器</span>
+        <span style="padding-left: 40px;color: #0e79b4">已选：<span id="selectName"></span></span>
         <div class="tip">
             <span class="tip-text"> <span class="layui-badge-dot green"></span>流畅</span>
-            <span  class="tip-text">  <span class="layui-badge-dot red"></span>爆满</span>
-            <span  class="tip-text"> <span class="layui-badge-dot stop"></span>维护</span>
+            <span class="tip-text">  <span class="layui-badge-dot red"></span>爆满</span>
+            <span class="tip-text"> <span class="layui-badge-dot stop"></span>维护</span>
 
         </div>
     </div>
@@ -157,8 +167,9 @@
             <ul id="usedServers"></ul>
         </div>
         <div class="r">
-            <div class="layout" >
+            <div class="layout">
                 <ul id="allServers"></ul>
+                <div style="text-align: center;margin: 20px;position: fixed;left: 50%;bottom: 20px;">  <button type="button" id="sureButton" style="width: 250px;" class="layui-btn  layui-btn-normal">确定</button></div>
             </div>
         </div>
     </div>
@@ -171,12 +182,25 @@
 <script src="./layui/layui.js"></script>
 <script>
     var url = "http://localhost:9000"
+    var loading =''
+    var code = ''
+    var selectStatus = ''
+    var severList = []
+    startLoading()
+
+    function startLoading(){
+        loading= layer.load('Loading...', {
+            shade: [0.1,'#fff'] //0.1透明度的白色背景
+        });
+    }
+    function closeLoading(){
+        layer.close(loading);
+    }
     getUser()
     getServers()
 
     //获取人员信息
     function getUser() {
-        console.log(1111111111)
         $.ajax({
             url: url + '/getUser',
             method: 'get',
@@ -184,12 +208,11 @@
                 layer.msg('服务器异常！', {icon: 2});
             },
             success: function (res, status) {
-                console.log(res)
                 if (res.code === '200') {
                     //获取
                 } else if (res.code === '502') {
                     layer.msg(res.data || res.message, {icon: 2});
-                    window.location.href='/index.html'
+                    window.location.href = '/index.html'
                 } else {
                     layer.msg(res.data || res.message, {icon: 2});
                 }
@@ -201,6 +224,7 @@
             dataType: 'json'
         });
     }
+
     //获取用户服务器
     function getServers() {
 
@@ -208,35 +232,46 @@
             url: url + '/getServers',
             method: 'get',
             error: function (err) {
+                closeLoading()
                 layer.msg('服务器异常！', {icon: 2});
             },
             success: function (res, status) {
                 console.log(res)
                 if (res.code === '200') {
+                    severList = res.data||[]
                     getUsedServers()
                     var html = ''
-                    res.data.map(function (item,index){
+                    res.data.map(function (item, index) {
                         var color = ''
-                        if(item.status===1){
+                        if (item.status === 1) {
                             color = 'green'
-                        }else if(item.status===2){
+                        } else if (item.status === 2) {
                             color = 'red'
-                        }else if(item.status===3){
+                        } else if (item.status === 3) {
                             color = 'stop'
                         }
-                        html+=' <li class="li"><span class="layui-badge-dot '+(index===0?'active':'')+color+'"></span>'+item.serverName+'</li>'
+                        if (item.recommend === 1) {
+                            code = item.code
+                            selectStatus = item.status
+                            $('#selectName').text(item.serverName)
+                        }
+                        html += ' <li class="li ' + (item.recommend === 1 ? 'active' : '') + '" code="'+item.code+'" status="'+item.status+'" name="' + item.serverName + '"><span class="layui-badge-dot ' + color + '"></span>' + item.serverName + '</li>'
                     })
                     //获取
                     $('#allServers').append(html)
                     //增加事件
-                    $('.li').on('click',function (doc){
+                    $('.li').on('click', function (doc) {
                         $('.li').removeClass('active')
                         $(this).addClass('active')
+                       code = $(this).attr('code')
+                        selectStatus = $(this).attr('status')
+
+                        $('#selectName').text($(this).text())
                     })
 
                 } else if (res.code === '502') {
                     layer.msg(res.data || res.message, {icon: 2});
-                    window.location.href='/index.html'
+                    window.location.href = '/index.html'
                 } else {
                     layer.msg(res.data || res.message, {icon: 2});
                 }
@@ -248,6 +283,7 @@
             dataType: 'json'
         });
     }
+
     //获取用户常用服务器
     function getUsedServers() {
 
@@ -258,31 +294,44 @@
                 layer.msg('服务器异常！', {icon: 2});
             },
             success: function (res, status) {
-                console.log(res)
+                closeLoading()
                 if (res.code === '200') {
+
                     //获取
-                    var html = ''
-                    res.data.map(function (item){
-                        var color = ''
-                        if(item.status===1){
-                            color = 'green'
-                        }else if(item.status===2){
-                            color = 'red'
-                        }else if(item.status===3){
-                            color = 'stop'
-                        }
-                        html+=' <li class="li"><span class="layui-badge-dot '+color+'"></span>'+item.serverName+'</li>'
-                    })
-                    //获取
-                    $('#usedServers').append(html)
-                    //增加事件
-                    $('.li').on('click',function (doc){
+                    if (res.data.length > 0) {
                         $('.li').removeClass('active')
-                        $(this).addClass('active')
-                    })
+
+                        var html = ''
+                        res.data.map(function (item, index) {
+                            var color = ''
+                            if (item.status === 1) {
+                                color = 'green'
+                            } else if (item.status === 2) {
+                                color = 'red'
+                            } else if (item.status === 3) {
+                                color = 'stop'
+                            }
+                            if (index === 0) {
+                                code = item.code
+                                selectStatus = item.status
+                                $('#selectName').text(item.serverName)
+                            }
+                            html += ' <li class="li ' + (index === 0 ? 'active' : '') + '" code="'+item.code+'" status="'+item.status+'"><span class="layui-badge-dot ' + color + '"></span>' + item.serverName + '</li>'
+                        })
+                        //获取
+                        $('#usedServers').append(html)
+                        //增加事件
+                        $('.li').on('click', function (doc) {
+                            $('.li').removeClass('active')
+                            $(this).addClass('active')
+                            code = $(this).attr('code')
+                            selectStatus = $(this).attr('status')
+                            $('#selectName').text($(this).text())
+                        })
+                    }
                 } else if (res.code === '502') {
                     layer.msg(res.data || res.message, {icon: 2});
-                    window.location.href='/index.html'
+                    window.location.href = '/index.html'
                 } else {
                     layer.msg(res.data || res.message, {icon: 2});
                 }
@@ -295,9 +344,30 @@
         });
     }
 
-    $('#title').on('click',function (){
-        $.cookie("sessionId",'')
-        window.location.href='/index.html'
+    $('#title').on('click', function () {
+        $.cookie("sessionId", '')
+        window.location.href = '/index.html'
+    })
+    //确认
+    $('#sureButton').on('click', function () {
+        if(!code){
+            layer.msg('请选择服务器！', {icon: 2});
+            return
+        }
+        if(selectStatus===3){
+            layer.msg('服务器维护中！', {icon: 2});
+            return
+        }
+
+        severList.map(function (item){
+            if(item.code==code){
+                $.cookie("serverO", JSON.stringify(item))
+                window.location.href = '/game.html'
+            }
+        })
+
+
+
     })
 
 </script>

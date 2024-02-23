@@ -31,7 +31,6 @@ func getUsedServersHandler(w http.ResponseWriter, req *http.Request) {
 	user := util.GetSessionIdUser(sessionId)
 
 	// 获取角色
-
 	userRoles := &msg.UserRole{}
 	roles := userRoles.GetUserRolesByUserId(user.Id)
 	var codes []int

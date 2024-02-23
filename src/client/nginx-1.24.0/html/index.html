@@ -140,17 +140,67 @@
 <!--<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>-->
 <script src="./layui/layui.js"></script>
 <script>
-    // layer.open({
-    //     type: 1,
-    //     title: '注册',
-    //     content: $('#register') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
-    // });
+
     var dev = true
     var url = "http://localhost:9000"
+    var loading =''
     var pageType = ""
     var countdown = 0//倒计时
     var time = ''
     var layerIndex = 0
+
+    function startLoading(){
+        loading= layer.load('Loading...', {
+            shade: [0.1,'#fff'] //0.1透明度的白色背景
+        });
+    }
+    function closeLoading(){
+        layer.close(loading);
+    }
+    //初始
+    //校验session是否合法
+    if($.cookie("sessionId")){
+        getUser()
+    }else {
+        $.cookie("serverO",'')
+        window.localStorage.setItem('userInfo',undefined)
+    }
+
+    //获取人员信息
+    function getUser() {
+        startLoading()
+        $.ajax({
+            url: url + '/getUser',
+            method: 'get',
+            error: function (err) {
+                closeLoading()
+                layer.msg('服务器异常！', {icon: 2});
+            },
+            success: function (res, status) {
+                closeLoading()
+                if (res.code === '200') {
+                    //获取
+                    window.localStorage.setItem('userInfo',JSON.stringify(res.data))
+                    if($.cookie("serverO")){
+                        window.location.href='/game.html'
+                    }else {
+                        window.location.href='/selectSever.html'
+                    }
+                } else if (res.code === '502') {
+
+                } else {
+                    layer.msg(res.data || res.message, {icon: 2});
+                }
+            },
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                "token": $.cookie("sessionId")
+            },
+            dataType: 'json'
+        });
+    }
+
+
 
     //打开注册页面
     function openR() {
@@ -290,15 +340,17 @@
         })
         //注册
         form.on('submit(register)', function (data) {
+            startLoading()
             $.ajax({
                 url: url + '/register',
                 data: data.field,
                 method: 'post',
                 error: function (err) {
 
+                    closeLoading()
                 },
                 success: function (res, status) {
-
+                    closeLoading()
 
                     if (res.code === '200') {
                         layer.msg('注册成功', {icon: 1});
@@ -324,14 +376,16 @@
         form.on('submit(login)', function (data) {
             console.log(1)
 
+            startLoading()
             $.ajax({
                 url: url + '/login',
                 data: data.field,
                 method: 'post',
                 error: function (err) {
-
+                    closeLoading()
                 },
                 success: function (res, status) {
+                    closeLoading()
                     if (res.code === '200') {
                         layer.msg('登录成功', {icon: 1});
                         //设置cookie
@@ -354,14 +408,16 @@
         //重置密码
         form.on('submit(resetPw)', function (data) {
 
+            startLoading()
             $.ajax({
                 url: url + '/resetPassword',
                 data: data.field,
                 method: 'post',
                 error: function (err) {
-
+                    closeLoading()
                 },
                 success: function (res, status) {
+                    closeLoading()
                     if (res.code === '200') {
                         layer.msg('重置密码成功，请重新登录', {icon: 1});
                         layer.close(layerIndex)
