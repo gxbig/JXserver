@@ -439,6 +439,7 @@
 
     var wsUri = "ws://127.0.0.1:3564/?{'new':3}";
     var json;
+   
 
     function login1() {
         var Data = {
@@ -449,20 +450,29 @@
             UserLogin: Data
         }
         var goServerJson = JSON.stringify(json);
-        wsUri = wsUri;
-        console.log(wsUri);
+
+
         doSend(goServerJson);
+
+        var Data1 = {
+            Name: "Golang.Ltd",
+
+        };
+        var json1 = {
+            Hello: Data1
+        }
+        var goServerJson1 = JSON.stringify(json1);
+
+
+        doSend(goServerJson1);
     }
 
-    "{UrN".split('').map((item, index) => {
-        return String.fromCharCode(item.charCodeAt() - index - 1)
-    })
+
 
     var output;
     var websocket1;
 
     function init() {
-        output = document.getElementById("output");
         testWebSocket();
     }
 
@@ -485,6 +495,7 @@
 
     function onOpen(evt) {
         console.log("CONNECTED");
+        login1()
     }
 
     function onClose(evt) {

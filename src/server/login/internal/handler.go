@@ -7,18 +7,28 @@ import (
 	"server/msg"
 )
 
+var ag []gate.Agent
+
 type MsgHandler func([]interface{})
 
 func handleMsg(m interface{}, handler MsgHandler) {
 
 	skeleton.RegisterChanRPC(reflect.TypeOf(m), func(args []interface{}) {
-
+		m := args[0].(*msg.UserLogin)
+		log.Debug("Test login %v", m.LoginName)
 		// 消息的发送者
 		a := args[1].(gate.Agent)
+		ag = append(ag, a)
+
+		a.WriteMsg(&msg.Exceptional{
+			Status: "1",
+		})
+		ag[0].WriteMsg(&msg.Exceptional{
+			Status: string(rune(len(ag))),
+		})
+
 		if a.UserData() == nil {
-			a.WriteMsg(&msg.Exceptional{
-				Status: "1",
-			})
+
 			return
 		} else {
 			log.Debug(a.UserData().(string))

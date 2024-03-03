@@ -3,10 +3,13 @@ package sqlClient
 import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/name5566/leaf/log"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
+	"log"
+	"os"
+	"path"
+	"server/tool"
 	"time"
 )
 
@@ -19,23 +22,48 @@ type Product struct {
 var DB *gorm.DB
 
 func init() {
-	log.Debug("init db")
+	tool.Debug("init db")
 	DB = OpenDb()
 }
 func OpenDb() *gorm.DB {
 	dns := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		"root", "@Gx.1101434570", "127.0.0.1", "3308", "jxserver")
+	now := time.Now()
 
+	filename := fmt.Sprintf("%d%02d%02d.log",
+		now.Year(),
+		now.Month(),
+		now.Day(),
+	)
+
+	logfile, _ := os.OpenFile(path.Join("./logs", filename), os.O_CREATE|os.O_APPEND|os.O_RDWR, 0666)
+	newLogger := logger.New(
+		log.New(logfile, "\r\n", log.LstdFlags), // io writer
+		logger.Config{
+			LogLevel: logger.Info, // Log level
+		},
+	)
+	var isDebug = false
+	args := os.Args[1:] // 去除第一个参数，即程序本身的路径
+	for i, arg := range args {
+		fmt.Println("参数", i, "是", arg)
+		if arg == "debug" {
+			isDebug = true
+		}
+	}
+	if isDebug {
+		newLogger = logger.Default.LogMode(logger.Info)
+	}
 	db, err := gorm.Open(mysql.Open(dns), &gorm.Config{ //建立连接时指定打印info级别的sql
-		Logger: logger.Default.LogMode(logger.Info), //配置日志级别，打印出所有的sql
+		Logger: newLogger, //配置日志级别，打印出所有的sql
 	})
 	if err != nil {
-		log.Error("数据库连接失败")
-		log.Error(err.Error())
+		tool.Error("数据库连接失败")
+		tool.Error(err.Error())
 	}
 	sqlDB, err := db.DB()
 	if err != nil {
-		log.Error(err.Error())
+		tool.Error(err.Error())
 	}
 	sqlDB.SetMaxOpenConns(100)                 // 设置数据库的最大打开连接数
 	sqlDB.SetMaxIdleConns(100)                 // 设置最大空闲连接数

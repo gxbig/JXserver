@@ -5,5 +5,5 @@
 	"WSAddr": "127.0.0.1:3564",
 	"RedisAddr": "127.0.0.1:6379",
 
-	"MaxConnNum": 20000
+	"MaxConnNum": 40000
 }

@@ -2,8 +2,8 @@ package redisClient
 
 import (
 	"github.com/go-redis/redis/v8"
-	"github.com/name5566/leaf/log"
 	"server/conf"
+	"server/tool"
 )
 
 var Rdb *redis.Client
@@ -15,10 +15,10 @@ func newClient() *redis.Client {
 		Password: conf.RedisPassword,    // 密码
 		DB:       0,                     // 使用默认数据库
 	})
-	log.Release("初始化redis连接成功!")
+	tool.Release("初始化redis连接成功!")
 	return client
 }
 func InitRedisClient() {
-	log.Release("开始初始化redis连接!")
+	tool.Release("开始初始化redis连接!")
 	Rdb = newClient()
 }

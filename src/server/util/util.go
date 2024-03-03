@@ -3,10 +3,10 @@ package util
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/name5566/leaf/log"
 	"math/rand"
 	"net/http"
 	"reflect"
+	"server/tool"
 	"strconv"
 	"strings"
 	"time"
@@ -19,34 +19,37 @@ type Results struct {
 	Data    interface{} `json:"data"`
 }
 
-func GetResults(data interface{}, code string, message string) ([]byte, error) {
+func GetResults(r *http.Request, data interface{}, code string, message string) ([]byte, error) {
 	result := &Results{
 		Message: message,
 		Code:    code,
 		Data:    data,
 	}
 	res, err := json.Marshal(result)
-	log.Debug(string(res))
+	tool.Debug(fmt.Sprintf("%s %s %s", r.RemoteAddr, r.Method, r.RequestURI))
+	tool.Debug(string(res))
 	return res, err
 }
-func GetSuccess(data interface{}) []byte {
+func GetSuccess(r *http.Request, data interface{}) []byte {
 	result := &Results{
 		Message: "请求成功！",
 		Code:    "200",
 		Data:    data,
 	}
 	res, _ := json.Marshal(result)
-	log.Debug(string(res))
+	tool.Debug(fmt.Sprintf("%s %s %s", r.RemoteAddr, r.Method, r.RequestURI))
+	tool.Debug(string(res))
 	return res
 }
-func GetError(data interface{}) []byte {
+func GetError(r *http.Request, data interface{}) []byte {
 	result := &Results{
 		Message: "系统错误",
 		Code:    "999",
 		Data:    data,
 	}
 	res, _ := json.Marshal(result)
-	log.Error(string(res))
+	tool.Debug(fmt.Sprintf("%s %s %s", r.RemoteAddr, r.Method, r.RequestURI))
+	tool.Error(string(res))
 	return res
 }
 
@@ -59,9 +62,8 @@ func (f HandlerFunc) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")  //允许访问所有域
 	w.Header().Add("Access-Control-Allow-Headers", "*") //header的类型
 	w.Header().Set("content-type", "application/json")
-	log.Debug(fmt.Sprintf("【%s】%s %s %s", time.Now().Format("2006-01-02 15:04:05"), r.RemoteAddr, r.Method, r.RequestURI))
 	if r.Method == "OPTIONS" {
-		res := GetSuccess("请求成功")
+		res := GetSuccess(r, "请求成功")
 
 		Write(w, res)
 		return
@@ -72,7 +74,7 @@ func (f HandlerFunc) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		sessionId := r.Header.Get("Token")
 		user := GetSessionIdUser(sessionId)
 		if user == nil {
-			res, _ := GetResults("登录失效", "502", "登录失效")
+			res, _ := GetResults(r, "登录失效", "502", "登录失效")
 			Write(w, res)
 			return
 		}

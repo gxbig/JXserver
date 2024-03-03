@@ -1,0 +1,60 @@
+2024/03/03 17:37:09 [debug  ] 【2024-03-03 17:37:09】[::1]:49297 OPTIONS /getUser
+2024/03/03 17:37:09 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:37:09 [debug  ] 【2024-03-03 17:37:09】[::1]:49296 OPTIONS /getServers
+2024/03/03 17:37:09 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:37:09 [debug  ] 【2024-03-03 17:37:09】[::1]:49297 GET /getUser
+2024/03/03 17:37:09 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/03 17:37:09 [debug  ] 【2024-03-03 17:37:09】[::1]:49296 GET /getServers
+
+2024/03/03 17:37:09 D:/Users/18810/GolandProjects/JXserver/src/server/msg/serverList.go:37
+[1.632ms] [rows:2] SELECT * FROM `servers` WHERE `servers`.`deleted_at` IS NULL ORDER BY code
+2024/03/03 17:37:09 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/03 17:37:09 [debug  ] 【2024-03-03 17:37:09】[::1]:49296 OPTIONS /getUsedServers
+2024/03/03 17:37:09 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:37:09 [debug  ] 【2024-03-03 17:37:09】[::1]:49296 GET /getUsedServers
+
+2024/03/03 17:37:09 D:/Users/18810/GolandProjects/JXserver/src/server/msg/userRole.go:46
+[0.768ms] [rows:0] SELECT * FROM `user_role` WHERE user_id in (35) AND `user_role`.`deleted_at` IS NULL ORDER BY login_date
+
+2024/03/03 17:37:09 D:/Users/18810/GolandProjects/JXserver/src/server/msg/serverList.go:30
+[0.000ms] [rows:0] SELECT * FROM `servers` WHERE code in (NULL) AND `servers`.`deleted_at` IS NULL ORDER BY code
+2024/03/03 17:37:09 [debug  ] {"code":"200","message":"请求成功！","data":[]}
+2024/03/03 17:37:23 [debug  ] 【2024-03-03 17:37:23】[::1]:49296 OPTIONS /getUser
+2024/03/03 17:37:23 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:37:23 [debug  ] 【2024-03-03 17:37:23】[::1]:49297 OPTIONS /getServers
+2024/03/03 17:37:23 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:37:23 [debug  ] 【2024-03-03 17:37:23】[::1]:49296 GET /getUser
+2024/03/03 17:37:23 [debug  ] 【2024-03-03 17:37:23】[::1]:49297 GET /getServers
+2024/03/03 17:37:23 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+
+2024/03/03 17:37:23 D:/Users/18810/GolandProjects/JXserver/src/server/msg/serverList.go:37
+[2.286ms] [rows:2] SELECT * FROM `servers` WHERE `servers`.`deleted_at` IS NULL ORDER BY code
+2024/03/03 17:37:23 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/03 17:37:23 [debug  ] 【2024-03-03 17:37:23】[::1]:49297 OPTIONS /getUsedServers
+2024/03/03 17:37:23 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:37:23 [debug  ] 【2024-03-03 17:37:23】[::1]:49297 GET /getUsedServers
+
+2024/03/03 17:37:23 D:/Users/18810/GolandProjects/JXserver/src/server/msg/userRole.go:46
+[0.543ms] [rows:0] SELECT * FROM `user_role` WHERE user_id in (35) AND `user_role`.`deleted_at` IS NULL ORDER BY login_date
+
+2024/03/03 17:37:23 D:/Users/18810/GolandProjects/JXserver/src/server/msg/serverList.go:30
+[0.550ms] [rows:0] SELECT * FROM `servers` WHERE code in (NULL) AND `servers`.`deleted_at` IS NULL ORDER BY code
+2024/03/03 17:37:23 [debug  ] {"code":"200","message":"请求成功！","data":[]}
+2024/03/03 17:48:59 [debug  ] init db
+2024/03/03 17:48:59 [release] 初始化协程池Pool成功!
+2024/03/03 17:48:59 [debug  ] 启动http登录服务！
+2024/03/03 17:48:59 [release] 开始初始化redis连接!
+2024/03/03 17:48:59 [release] 初始化redis连接成功!
+2024/03/03 17:48:59 [debug  ] Server started on :3564
+2024/03/03 17:49:07 [debug  ] [::1]:50118 OPTIONS /getUser
+2024/03/03 17:49:07 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:49:07 [debug  ] [::1]:50119 OPTIONS /getServers
+2024/03/03 17:49:07 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:49:07 [debug  ] [::1]:50118 GET /getUser
+2024/03/03 17:49:07 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/03 17:49:07 [debug  ] [::1]:50119 GET /getServers
+2024/03/03 17:49:07 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/03 17:49:07 [debug  ] [::1]:50119 OPTIONS /getUsedServers
+2024/03/03 17:49:07 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/03 17:49:07 [debug  ] [::1]:50119 GET /getUsedServers
+2024/03/03 17:49:07 [debug  ] {"code":"200","message":"请求成功！","data":[]}

@@ -19,7 +19,7 @@ func getUserHandler(w http.ResponseWriter, r *http.Request) {
 	user := util.GetSessionIdUser(sessionId)
 	user.Pw = ""
 	user.Identity = ""
-	res := util.GetSuccess(user)
+	res := util.GetSuccess(r, user)
 	util.Write(w, res)
 
 }
@@ -34,7 +34,7 @@ func getUserRolesHandler(w http.ResponseWriter, r *http.Request) {
 	//获取所有角色
 	role := &msg.UserRole{UserId: user.Id}
 	userRoles := role.GetUserRoles()
-	res := util.GetSuccess(userRoles)
+	res := util.GetSuccess(r, userRoles)
 
 	util.Write(w, res)
 

@@ -19,7 +19,7 @@ func init() {
 func getServersHandler(w http.ResponseWriter, req *http.Request) {
 	server := &msg.Server{}
 	servers := server.QueryServers()
-	res := util.GetSuccess(servers)
+	res := util.GetSuccess(req, servers)
 
 	util.Write(w, res)
 }
@@ -40,7 +40,7 @@ func getUsedServersHandler(w http.ResponseWriter, req *http.Request) {
 
 	server := &msg.Server{}
 	servers := server.CodeQueryServers(codes)
-	res := util.GetSuccess(servers)
+	res := util.GetSuccess(req, servers)
 
 	util.Write(w, res)
 }

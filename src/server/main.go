@@ -2,40 +2,46 @@ package main
 
 import (
 	_ "context"
-	"github.com/name5566/leaf"
-	lconf "github.com/name5566/leaf/conf"
-	"github.com/name5566/leaf/log"
 	"net/http"
+	"os"
+	"os/signal"
 	"server/conf"
-	"server/game"
-	"server/gate"
 	"server/httpServer"
-	"server/login"
 	"server/redisClient"
 	_ "server/sqlClient"
 	"server/threadPool"
+	"server/tool"
+	"server/util"
 )
 
 func startServer() {
-	log.Debug("启动http登录服务！")
+	tool.Debug("启动http登录服务！")
 	err := http.ListenAndServe("0.0.0.0:9000", httpServer.Mux)
 	if err != nil {
-
-		log.Error(err.Error())
+		tool.Error(err.Error())
 	}
 }
+
+//// var logger *log.Logger
+//func initLog() {
+//	log.New("debug", "./log", 3)
+//}
+
 func main() {
+	//util.InitLog()
 	//启动http登录服务！
 	go startServer()
-
+	//defer util.Logger.Close()
 	//初始化协程持
 	threadPool.InitPool(conf.PoolMaxNum)
 	//初始化redis
 	redisClient.InitRedisClient()
 	defer func() {
 		_ = redisClient.Rdb.Close()
-
+		tool.Close()
 	}()
+
+	util.InitWebsocket()
 
 	//user := &msg.User{Id: 1}
 	//err1 := user.RegisterInsetUser()
@@ -65,16 +71,19 @@ func main() {
 	//	log.Debug("value is empty")
 	//}
 	//log.Debug(val, err)
-	lconf.LogLevel = conf.Server.LogLevel
-	lconf.LogPath = conf.Server.LogPath
-	lconf.LogFlag = conf.LogFlag
-	lconf.ConsolePort = conf.Server.ConsolePort
-	lconf.ProfilePath = conf.Server.ProfilePath
-
-	leaf.Run(
-		game.Module,
-		gate.Module,
-		login.Module,
-	)
-
+	//lconf.LogLevel = conf.Server.LogLevel
+	//lconf.LogPath = conf.Server.LogPath
+	//lconf.LogFlag = conf.LogFlag
+	//lconf.ConsolePort = conf.Server.ConsolePort
+	//lconf.ProfilePath = conf.Server.ProfilePath
+	//
+	//leaf.Run(
+	//	game.Module,
+	//	gate.Module,
+	//	login.Module,
+	//)
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt, os.Kill)
+	sig := <-c
+	tool.Release("closing down (signal: %v)", sig)
 }

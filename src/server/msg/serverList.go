@@ -27,7 +27,9 @@ func (server *Server) TableName() string {
 // 获取用户服务器数据
 func (server *Server) CodeQueryServers(codes []int) []Server {
 	var serves []Server
-	sqlClient.DB.Where("code in (?)", codes).Order("code").Find(&serves)
+	if len(codes) > 0 {
+		sqlClient.DB.Where("code in (?)", codes).Order("code").Find(&serves)
+	}
 	return serves
 }
 
