@@ -22,7 +22,7 @@ type Product struct {
 var DB *gorm.DB
 
 func init() {
-	tool.Debug("init db")
+	tool.Debug("init db" + "127.0.0.1:" + "3308")
 	DB = OpenDb()
 }
 func OpenDb() *gorm.DB {

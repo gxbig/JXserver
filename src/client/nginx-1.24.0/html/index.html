@@ -437,7 +437,7 @@
     });
 
 
-    var wsUri = "ws://127.0.0.1:3564/?{'new':3}";
+    var wsUri = "ws://127.0.0.1:3564?new=3";
     var json;
    
 
@@ -479,9 +479,11 @@
     function testWebSocket() {
         console.log(wsUri)
         websocket1 = new WebSocket(wsUri);
+
         websocket1.onopen = function (evt) {
             onOpen(evt)
         };
+        websocket1.setRequestHeader('Authorization', $.cookie("sessionId"));
         websocket1.onclose = function (evt) {
             onClose(evt)
         };

@@ -15,7 +15,7 @@ func newClient() *redis.Client {
 		Password: conf.RedisPassword,    // 密码
 		DB:       0,                     // 使用默认数据库
 	})
-	tool.Release("初始化redis连接成功!")
+	tool.Release("初始化redis连接成功!" + conf.Server.RedisAddr)
 	return client
 }
 func InitRedisClient() {

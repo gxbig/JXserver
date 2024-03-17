@@ -48,7 +48,7 @@ func GetSessionIdUser(SessionId string) *msg.User {
 
 // 删除 user 通过id
 func DelSessionUserById(id string) {
-	SessionId := redisClient.Rdb.HGet(ctx, "sessionId", id).Val()
+	SessionId := redisClient.Rdb.HGet(ctx, "userIdToSessionId", id).Val()
 
 	//删除sessionId对应的userId
 	redisClient.Rdb.HDel(ctx, "userIdToSessionId", id)

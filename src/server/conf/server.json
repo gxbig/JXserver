@@ -4,6 +4,8 @@
 	"TCPAddr": "127.0.0.1:3563",
 	"WSAddr": "127.0.0.1:3564",
 	"RedisAddr": "127.0.0.1:6379",
+	"HttpAddr": "0.0.0.0:9000",
+	"HttpClientAddr": "http://127.0.0.1:9000",
 
-	"MaxConnNum": 40000
+	"MaxConnNum": 20000
 }

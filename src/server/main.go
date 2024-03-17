@@ -12,11 +12,12 @@ import (
 	"server/threadPool"
 	"server/tool"
 	"server/util"
+	_ "server/ws"
 )
 
 func startServer() {
-	tool.Debug("启动http登录服务！")
-	err := http.ListenAndServe("0.0.0.0:9000", httpServer.Mux)
+	tool.Debug("启动http登录服务！" + conf.Server.HttpAddr)
+	err := http.ListenAndServe(conf.Server.HttpAddr, httpServer.Mux)
 	if err != nil {
 		tool.Error(err.Error())
 	}
@@ -31,6 +32,7 @@ func main() {
 	//util.InitLog()
 	//启动http登录服务！
 	go startServer()
+
 	//defer util.Logger.Close()
 	//初始化协程持
 	threadPool.InitPool(conf.PoolMaxNum)
@@ -40,9 +42,7 @@ func main() {
 		_ = redisClient.Rdb.Close()
 		tool.Close()
 	}()
-
 	util.InitWebsocket()
-
 	//user := &msg.User{Id: 1}
 	//err1 := user.RegisterInsetUser()
 	//if err1 != nil {
