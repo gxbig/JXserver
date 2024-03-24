@@ -437,34 +437,22 @@
     });
 
 
-    var wsUri = "ws://127.0.0.1:3564?new=3";
+    var wsUri = "ws://127.0.0.1:3564?sessionId=UfkmMJYMbIvQOMJDAnDSRlHp";
     var json;
    
 
     function login1() {
         var Data = {
-            LoginName: "Golang.Ltd",
-            LoginPW: "123456",
+            type: "/getUser",
         };
-        var json = {
-            UserLogin: Data
-        }
-        var goServerJson = JSON.stringify(json);
+
+       
+        var goServerJson = JSON.stringify(Data);
 
 
         doSend(goServerJson);
 
-        var Data1 = {
-            Name: "Golang.Ltd",
 
-        };
-        var json1 = {
-            Hello: Data1
-        }
-        var goServerJson1 = JSON.stringify(json1);
-
-
-        doSend(goServerJson1);
     }
 
 
@@ -483,11 +471,12 @@
         websocket1.onopen = function (evt) {
             onOpen(evt)
         };
-        websocket1.setRequestHeader('Authorization', $.cookie("sessionId"));
+
         websocket1.onclose = function (evt) {
             onClose(evt)
         };
         websocket1.onmessage = function (evt) {
+
             onMessage(evt)
         };
         websocket1.onerror = function (evt) {
@@ -505,6 +494,7 @@
     }
 
     function onError(evt) {
+        console.log("error");
         console.log(evt.data);
     }
 
@@ -514,17 +504,18 @@
     }
 
     function onMessage(evt) {
+
         console.log(evt);
-        var filrReader = new FileReader();
-        filrReader.onload = function () {
-            var arrayBuffer = this.result;
-            var decoder = new TextDecoder('utf-8')
-            var json = JSON.parse(decoder.decode(new DataView(arrayBuffer)));
-            console.log(json);
-        };
-        filrReader.readAsArrayBuffer(evt.data);
+        // var filrReader = new FileReader();
+        // filrReader.onload = function () {
+        //     var arrayBuffer = this.result;
+        //     var decoder = new TextDecoder('utf-8')
+        //     var json = JSON.parse(decoder.decode(new DataView(arrayBuffer)));
+        //     console.log(json);
+        // };
+        // filrReader.readAsArrayBuffer(evt.data);
     };
-    window.addEventListener("load", init, false);
+ //   window.addEventListener("load", init, false);
 </script>
 <style>
     .background {

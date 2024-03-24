@@ -27,6 +27,9 @@ func SetSessionIdUser(SessionId string, user *msg.User) {
 
 // 获取session对应的user
 func GetSessionIdUser(SessionId string) *msg.User {
+	if SessionId == "" {
+		return nil
+	}
 	//先从内存获取
 	user := SessionIdUser[SessionId]
 	if user != nil {

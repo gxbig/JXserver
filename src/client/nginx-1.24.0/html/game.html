@@ -16,7 +16,7 @@
        服务器：<span id="selectServe"></span>
         <button class="hand-server layui-btn  layui-btn-xs">换区</button>
     </div>
-    <iframe src="https://www.baidu.com/" style="width:100%;height: calc(100% - 34px);border: 0;display: block"
+    <iframe src="./jx/index.html" style="width:100%;height: calc(100% - 34px);border: 0;display: block"
             id="gameIframe"></iframe>
 </div>
 </body>
@@ -39,6 +39,33 @@
     function closeLoading() {
         layer.close(loading);
     }
+    //当前选择的服务器
+    function unityGetServe(){
+        //JSON.stringify(server)
+    }
+    console.log( $.cookie("serverO"))
+    //当前用户cookies
+    function unityGetCookie(name){
+        return $.cookie(name)
+    }
+    //退出
+    function unityGoBack(){
+        $.removeCookie("serverO")
+        $.removeCookie("sessionId")
+        localStorage.clear()
+        window.location.href = '/index.html'
+    }
+
+    //单点登录提示
+    function singClose(){
+        layer.alert('其他页面打开中，连接已断开！', {
+            icon: 2,
+            shadeClose: true,
+            title: '提示 '
+        },function(){
+            layer.closeAll();
+        });
+    }
 
     var server = $.cookie("serverO")
     var serverMap = {}
@@ -46,8 +73,8 @@
         getUser()
     } else {
         window.location.href = '/index.html'
-
     }
+
     //换区按钮
     $('.hand-server').on('click', function () {
         $.cookie("serverO", '')
@@ -55,10 +82,7 @@
     })
     //退出
     $('.back').on('click', function () {
-        $.removeCookie("serverO")
-        $.removeCookie("sessionId")
-        localStorage.clear()
-        window.location.href = '/index.html'
+        unityGoBack()
     })
 
     //获取人员信息
