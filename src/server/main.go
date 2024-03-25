@@ -2,11 +2,9 @@ package main
 
 import (
 	_ "context"
-	"net/http"
 	"os"
 	"os/signal"
 	"server/conf"
-	"server/httpServer"
 	"server/redisClient"
 	_ "server/sqlClient"
 	"server/threadPool"
@@ -14,14 +12,6 @@ import (
 	"server/util"
 	_ "server/ws"
 )
-
-func startServer() {
-	tool.Debug("启动http登录服务！" + conf.Server.HttpAddr)
-	err := http.ListenAndServe(conf.Server.HttpAddr, httpServer.Mux)
-	if err != nil {
-		tool.Error(err.Error())
-	}
-}
 
 //// var logger *log.Logger
 //func initLog() {
@@ -31,7 +21,6 @@ func startServer() {
 func main() {
 	//util.InitLog()
 	//启动http登录服务！
-	go startServer()
 
 	//defer util.Logger.Close()
 	//初始化协程持

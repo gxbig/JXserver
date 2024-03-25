@@ -1,0 +1,596 @@
+2024/03/24 17:23:28 [debug  ] init db127.0.0.1:3308
+2024/03/24 17:23:28 [release] 初始化协程池Pool成功!
+2024/03/24 17:23:28 [debug  ] 启动http登录服务！0.0.0.0:9000
+2024/03/24 17:23:28 [release] 开始初始化redis连接!
+2024/03/24 17:23:28 [release] 初始化redis连接成功!127.0.0.1:6379
+2024/03/24 17:23:28 [debug  ] websocket启动:127.0.0.1:3564
+2024/03/24 17:23:42 [debug  ] [::1]:53373 POST /login
+2024/03/24 17:23:42 [debug  ] {"code":"200","message":"请求成功！","data":"KBqyFKNDzheYrZGhlwhiQkQY"}
+2024/03/24 17:23:42 [debug  ] [::1]:53373 OPTIONS /getUser
+2024/03/24 17:23:42 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:23:42 [debug  ] [::1]:53373 OPTIONS /getServers
+2024/03/24 17:23:42 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:23:42 [debug  ] [::1]:53376 GET /getUser
+2024/03/24 17:23:42 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:23:42 [debug  ] [::1]:53373 GET /getServers
+2024/03/24 17:23:42 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 17:23:42 [debug  ] [::1]:53373 OPTIONS /getUsedServers
+2024/03/24 17:23:42 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:23:42 [debug  ] [::1]:53373 GET /getUsedServers
+2024/03/24 17:23:42 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 17:23:44 [debug  ] [::1]:53373 GET /getUser
+2024/03/24 17:23:44 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:23:55 [debug  ] 127.0.0.1:53400 GET /getUser
+2024/03/24 17:23:55 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 17:23:55 [debug  ] 未登录:127.0.0.1:53399:{"type":"/unLogin","data":null}
+2024/03/24 17:30:36 [debug  ] [::1]:54606 OPTIONS /getUser
+2024/03/24 17:30:36 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:30:36 [debug  ] [::1]:54606 GET /getUser
+2024/03/24 17:30:36 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:30:50 [debug  ] 127.0.0.1:54656 GET /getUser
+2024/03/24 17:30:50 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 17:30:50 [debug  ] 未登录:127.0.0.1:54654:{"type":"/unLogin","data":null}
+2024/03/24 17:33:54 [debug  ] [::1]:54606 OPTIONS /getUser
+2024/03/24 17:33:54 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:33:54 [debug  ] [::1]:54606 GET /getUser
+2024/03/24 17:33:54 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:34:01 [debug  ] 127.0.0.1:55113 GET /getUser
+2024/03/24 17:34:01 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 17:34:01 [debug  ] 未登录:127.0.0.1:55112:{"type":"/unLogin","data":null}
+2024/03/24 17:34:03 [debug  ] [::1]:54606 OPTIONS /getUser
+2024/03/24 17:34:03 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:34:03 [debug  ] [::1]:54606 GET /getUser
+2024/03/24 17:34:03 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:34:22 [debug  ] 127.0.0.1:55113 GET /getUser
+2024/03/24 17:34:22 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 17:34:22 [debug  ] 未登录:127.0.0.1:55149:{"type":"/unLogin","data":null}
+2024/03/24 17:35:01 [debug  ] [::1]:54606 OPTIONS /getUser
+2024/03/24 17:35:01 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:35:01 [debug  ] [::1]:54606 GET /getUser
+2024/03/24 17:35:01 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:35:04 [debug  ] 127.0.0.1:55113 GET /getUser
+2024/03/24 17:35:04 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 17:35:04 [debug  ] 未登录:127.0.0.1:55255:{"type":"/unLogin","data":null}
+2024/03/24 17:35:05 [debug  ] [::1]:54606 GET /getUser
+2024/03/24 17:35:05 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:35:09 [debug  ] 127.0.0.1:55113 GET /getUser
+2024/03/24 17:35:09 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 17:35:09 [debug  ] 未登录:127.0.0.1:55266:{"type":"/unLogin","data":null}
+2024/03/24 17:42:16 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:42:16 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:42:16 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:42:16 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:43:12 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:43:12 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:43:12 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:43:12 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:43:14 [debug  ] uuid:lmqFMDyuNmKmpALsstpqlfnL ws客户端连接成功：地址=127.0.0.1:56385 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:43:14 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:56385 {"type":"/getUser","data":null}
+2024/03/24 17:43:14 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:44:01 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:44:01 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:44:01 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:44:01 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:44:03 [debug  ] 新uuid:dPkFItYHxSwrHFZPCAciJVlA与旧uuid:lmqFMDyuNmKmpALsstpqlfnL  重复登录断开连接：:id=%!s(int=36) 消息={"type":"/singClose","data":null}
+2024/03/24 17:44:03 [debug  ] uuid:dPkFItYHxSwrHFZPCAciJVlA ws客户端连接成功：地址=127.0.0.1:56502 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:44:03 [error  ] uid:lmqFMDyuNmKmpALsstpqlfnL 其他错误，ws客户端连接关闭：地址=127.0.0.1:56385 id=36 email=1101434570@qq.com  错误=read tcp 127.0.0.1:3564->127.0.0.1:56385: use of closed network connection
+2024/03/24 17:44:03 [error  ] uuid:lmqFMDyuNmKmpALsstpqlfnL ws客户端连接关闭失败：地址=127.0.0.1:56385 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:44:03 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:56502 {"type":"/getUser","data":null}
+2024/03/24 17:44:03 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:44:35 [debug  ] uuid:dPkFItYHxSwrHFZPCAciJVlA ws客户端连接关闭：地址=127.0.0.1:56502 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:44:35 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:44:35 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:44:35 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:44:35 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:44:39 [debug  ] uuid:LxMSTmModoCwFtLOGgUekkVz ws客户端连接成功：地址=127.0.0.1:56567 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:44:40 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:56567 {"type":"/getUser","data":null}
+2024/03/24 17:44:40 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:44:45 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:44:45 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:44:45 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:44:45 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:44:49 [debug  ] 新uuid:rOzRjhnkZVrZmQSjYrQpqMAG与旧uuid:LxMSTmModoCwFtLOGgUekkVz  重复登录断开连接：:id=%!s(int=36) 消息={"type":"/singClose","data":null}
+2024/03/24 17:44:49 [debug  ] uuid:rOzRjhnkZVrZmQSjYrQpqMAG ws客户端连接成功：地址=127.0.0.1:56582 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:44:49 [error  ] uid:LxMSTmModoCwFtLOGgUekkVz 其他错误，ws客户端连接关闭：地址=127.0.0.1:56567 id=36 email=1101434570@qq.com  错误=read tcp 127.0.0.1:3564->127.0.0.1:56567: use of closed network connection
+2024/03/24 17:44:49 [error  ] uuid:LxMSTmModoCwFtLOGgUekkVz ws客户端连接关闭失败：地址=127.0.0.1:56567 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:44:49 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:56582 {"type":"/getUser","data":null}
+2024/03/24 17:44:49 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:48:34 [debug  ] uuid:rOzRjhnkZVrZmQSjYrQpqMAG ws客户端连接关闭：地址=127.0.0.1:56582 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:48:34 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:48:34 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:48:34 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:48:34 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:49:02 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:49:02 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:49:02 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:49:02 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:50:17 [debug  ] uuid:wEcSjCMNvAHjvmLsvRJswfZB ws客户端连接成功：地址=127.0.0.1:57207 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:50:18 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:57207 {"type":"/getUser","data":null}
+2024/03/24 17:50:18 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:50:19 [debug  ] uuid:wEcSjCMNvAHjvmLsvRJswfZB ws客户端连接关闭：地址=127.0.0.1:57207 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:50:23 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:50:23 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:50:23 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:50:23 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:51:11 [debug  ] uuid:iPBsXVnHGkqkMXcvTUuqSyYX ws客户端连接成功：地址=127.0.0.1:57312 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:51:11 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:57312 {"type":"/getUser","data":null}
+2024/03/24 17:51:11 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:51:47 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:51:47 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:51:47 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:51:47 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:51:51 [debug  ] 新uuid:PhNwRxwBQbQRzBDdXxMjlbGd与旧uuid:iPBsXVnHGkqkMXcvTUuqSyYX  重复登录断开连接：:id=%!s(int=36) 消息={"type":"/singClose","data":null}
+2024/03/24 17:51:51 [debug  ] uuid:PhNwRxwBQbQRzBDdXxMjlbGd ws客户端连接成功：地址=127.0.0.1:57393 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:51:51 [error  ] uid:iPBsXVnHGkqkMXcvTUuqSyYX 其他错误，ws客户端连接关闭：地址=127.0.0.1:57312 id=36 email=1101434570@qq.com  错误=read tcp 127.0.0.1:3564->127.0.0.1:57312: use of closed network connection
+2024/03/24 17:51:51 [error  ] uuid:iPBsXVnHGkqkMXcvTUuqSyYX ws客户端连接关闭失败：地址=127.0.0.1:57312 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:51:52 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:57393 {"type":"/getUser","data":null}
+2024/03/24 17:51:52 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:52:02 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:52:02 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:52:02 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:52:02 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:52:05 [debug  ] 新uuid:YfdXGbdknGTknEMSrWeCRefW与旧uuid:PhNwRxwBQbQRzBDdXxMjlbGd  重复登录断开连接：:id=%!s(int=36) 消息={"type":"/singClose","data":null}
+2024/03/24 17:52:05 [debug  ] uuid:YfdXGbdknGTknEMSrWeCRefW ws客户端连接成功：地址=127.0.0.1:57429 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:52:05 [error  ] uid:PhNwRxwBQbQRzBDdXxMjlbGd 其他错误，ws客户端连接关闭：地址=127.0.0.1:57393 id=36 email=1101434570@qq.com  错误=read tcp 127.0.0.1:3564->127.0.0.1:57393: use of closed network connection
+2024/03/24 17:52:05 [error  ] uuid:PhNwRxwBQbQRzBDdXxMjlbGd ws客户端连接关闭失败：地址=127.0.0.1:57393 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:52:05 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:57429 {"type":"/getUser","data":null}
+2024/03/24 17:52:05 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:52:17 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:52:17 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:52:17 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:52:17 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:53:05 [debug  ] 新uuid:iZBNHioDtONrDexEatxiuUDg与旧uuid:YfdXGbdknGTknEMSrWeCRefW  重复登录断开连接：:id=%!s(int=36) 消息={"type":"/singClose","data":null}
+2024/03/24 17:53:05 [error  ] uid:YfdXGbdknGTknEMSrWeCRefW 其他错误，ws客户端连接关闭：地址=127.0.0.1:57429 id=36 email=1101434570@qq.com  错误=read tcp 127.0.0.1:3564->127.0.0.1:57429: use of closed network connection
+2024/03/24 17:53:05 [debug  ] uuid:iZBNHioDtONrDexEatxiuUDg ws客户端连接成功：地址=127.0.0.1:57518 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:53:05 [error  ] uuid:YfdXGbdknGTknEMSrWeCRefW ws客户端连接关闭失败：地址=127.0.0.1:57429 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:53:05 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:57518 {"type":"/getUser","data":null}
+2024/03/24 17:53:05 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:55:59 [debug  ] uuid:iZBNHioDtONrDexEatxiuUDg ws客户端连接关闭：地址=127.0.0.1:57518 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:56:03 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:56:03 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:56:03 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:56:03 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:56:54 [debug  ] uuid:yMqrsrairrdyuOCPMjkjEZcb ws客户端连接成功：地址=127.0.0.1:58182 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:56:54 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:58182 {"type":"/getUser","data":null}
+2024/03/24 17:56:54 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:58:10 [debug  ] uuid:yMqrsrairrdyuOCPMjkjEZcb ws客户端连接关闭：地址=127.0.0.1:58182 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:58:14 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:58:14 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:58:14 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:58:14 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:58:59 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 17:58:59 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 17:58:59 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 17:58:59 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 17:59:50 [debug  ] uuid:QzuxRxxWmMKliPwOkLRFyuQG ws客户端连接成功：地址=127.0.0.1:58779 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 17:59:50 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:58779 {"type":"/getUser","data":null}
+2024/03/24 17:59:50 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 18:00:04 [debug  ] uuid:QzuxRxxWmMKliPwOkLRFyuQG ws客户端连接关闭：地址=127.0.0.1:58779 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 18:00:04 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 18:00:04 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 18:00:04 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 18:00:04 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 18:00:06 [debug  ] uuid:NbpogMjWxQeBSlmhLIMrBWAI ws客户端连接成功：地址=127.0.0.1:58820 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 18:00:07 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:58820 {"type":"/getUser","data":null}
+2024/03/24 18:00:07 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 18:00:22 [debug  ] uuid:NbpogMjWxQeBSlmhLIMrBWAI ws客户端连接关闭：地址=127.0.0.1:58820 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 18:00:22 [debug  ] [::1]:56258 OPTIONS /getUser
+2024/03/24 18:00:22 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 18:00:22 [debug  ] [::1]:56258 GET /getUser
+2024/03/24 18:00:22 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 18:00:25 [debug  ] uuid:WSkPVmNgqJzSMXOfWGDOurVF ws客户端连接成功：地址=127.0.0.1:58854 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 18:00:25 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:58854 {"type":"/getUser","data":null}
+2024/03/24 18:00:25 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 18:30:35 [debug  ] [::1]:61681 OPTIONS /getUser
+2024/03/24 18:30:35 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 18:30:35 [debug  ] [::1]:61681 GET /getUser
+2024/03/24 18:30:35 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 18:30:40 [debug  ] 新uuid:lchKinKYKBQgafLLlwIdGlgZ与旧uuid:WSkPVmNgqJzSMXOfWGDOurVF  重复登录断开连接：:id=%!s(int=36) 消息={"type":"/singClose","data":null}
+2024/03/24 18:30:40 [error  ] uid:WSkPVmNgqJzSMXOfWGDOurVF 其他错误，ws客户端连接关闭：地址=127.0.0.1:58854 id=36 email=1101434570@qq.com  错误=read tcp 127.0.0.1:3564->127.0.0.1:58854: use of closed network connection
+2024/03/24 18:30:40 [debug  ] uuid:lchKinKYKBQgafLLlwIdGlgZ ws客户端连接成功：地址=127.0.0.1:61695 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 18:30:40 [error  ] uuid:WSkPVmNgqJzSMXOfWGDOurVF ws客户端连接关闭失败：地址=127.0.0.1:58854 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 18:30:40 [debug  ] /getUser 接收消息:id=36 2 127.0.0.1:61695 {"type":"/getUser","data":null}
+2024/03/24 18:30:40 [debug  ] /getUser发送:id=%!s(int=36) 消息={"type":"/setUser","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 18:57:59 [debug  ] uuid:lchKinKYKBQgafLLlwIdGlgZ ws客户端连接关闭：地址=127.0.0.1:61695 id=36 email=1101434570@qq.com  姓名=
+2024/03/24 18:57:59 [debug  ] [::1]:63957 OPTIONS /getUser
+2024/03/24 18:57:59 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 18:57:59 [debug  ] [::1]:63957 GET /getUser
+2024/03/24 18:57:59 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 18:59:18 [debug  ] [::1]:63957 OPTIONS /getUser
+2024/03/24 18:59:18 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 18:59:18 [debug  ] [::1]:63957 GET /getUser
+2024/03/24 18:59:18 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:03:45 [debug  ] [::1]:63957 OPTIONS /getUser
+2024/03/24 19:03:45 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:03:45 [debug  ] [::1]:63957 GET /getUser
+2024/03/24 19:03:45 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:08:09 [debug  ] [::1]:63957 OPTIONS /getUser
+2024/03/24 19:08:09 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:08:09 [debug  ] [::1]:63957 GET /getUser
+2024/03/24 19:08:09 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:10:15 [debug  ] [::1]:63957 OPTIONS /getUser
+2024/03/24 19:10:15 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:10:15 [debug  ] [::1]:63957 GET /getUser
+2024/03/24 19:10:15 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:10:30 [debug  ] uuid:gNymCevibIkxgUUhIWWfevak ws客户端连接成功：地址=127.0.0.1:65087 id=35 email=18810994068@163.com  姓名=
+2024/03/24 19:10:31 [debug  ] /getUser 接收消息:id=35 2 127.0.0.1:65087 {"type":"/getUser","data":null}
+2024/03/24 19:10:31 [debug  ] /getUser发送:id=%!s(int=35) 消息={"type":"/setUser","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 19:12:43 [debug  ] uuid:gNymCevibIkxgUUhIWWfevak ws客户端连接关闭：地址=127.0.0.1:65087 id=35 email=18810994068@163.com  姓名=
+2024/03/24 19:13:39 [debug  ] 127.0.0.1:65401 GET /getUser
+2024/03/24 19:13:39 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 19:13:39 [debug  ] 未登录:127.0.0.1:65400:{"type":"/unLogin","data":null}
+2024/03/24 19:17:33 [debug  ] [::1]:49427 OPTIONS /getUser
+2024/03/24 19:17:33 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:17:33 [debug  ] [::1]:49427 GET /getUser
+2024/03/24 19:17:33 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:35:06 [debug  ] [::1]:50638 OPTIONS /getUser
+2024/03/24 19:35:06 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:35:06 [debug  ] [::1]:50638 GET /getUser
+2024/03/24 19:35:06 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:35:41 [debug  ] [::1]:50638 OPTIONS /getUser
+2024/03/24 19:35:41 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:35:41 [debug  ] [::1]:50638 GET /getUser
+2024/03/24 19:35:41 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:40:34 [debug  ] [::1]:50638 OPTIONS /getUser
+2024/03/24 19:40:34 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:40:34 [debug  ] [::1]:50638 GET /getUser
+2024/03/24 19:40:34 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:46:41 [debug  ] [::1]:52375 OPTIONS /getUser
+2024/03/24 19:46:41 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:46:41 [debug  ] [::1]:52375 GET /getUser
+2024/03/24 19:46:41 [debug  ] {"code":"200","message":"请求成功！","data":{"id":36,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"dfIajVgEqEyd","pw":"","phone":"","email":"1101434570@qq.com","CreatedAt":"2024-01-13T09:42:01+08:00","UpdatedAt":"2024-01-13T09:42:01+08:00","DeletedAt":null}}
+2024/03/24 19:48:17 [debug  ] 127.0.0.1:52702 GET /getUser
+2024/03/24 19:48:17 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 19:48:17 [debug  ] 未登录:127.0.0.1:52700:{"type":"/unLogin","data":null}
+2024/03/24 19:48:18 [debug  ] uuid:NFuirAKYnWPNJTghtASNzmCU ws客户端连接成功：地址=127.0.0.1:52714 id=35 email=18810994068@163.com  姓名=
+2024/03/24 19:48:19 [debug  ] /getUser 接收消息:id=35 1 127.0.0.1:52714 {"type":"/getUser"}
+2024/03/24 19:48:19 [debug  ] /getUser发送:id=%!s(int=35) 消息={"type":"/setUser","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 19:48:24 [debug  ] 新uuid:PZUyTFMHdPhahuUYmDBglBaa与旧uuid:NFuirAKYnWPNJTghtASNzmCU  重复登录断开连接：:id=%!s(int=35) 消息={"type":"/singClose","data":null}
+2024/03/24 19:48:24 [error  ] uid:NFuirAKYnWPNJTghtASNzmCU 其他错误，ws客户端连接关闭：地址=127.0.0.1:52714 id=35 email=18810994068@163.com  错误=read tcp 127.0.0.1:3564->127.0.0.1:52714: use of closed network connection
+2024/03/24 19:48:24 [debug  ] uuid:PZUyTFMHdPhahuUYmDBglBaa ws客户端连接成功：地址=127.0.0.1:52739 id=35 email=18810994068@163.com  姓名=
+2024/03/24 19:48:24 [error  ] uuid:NFuirAKYnWPNJTghtASNzmCU ws客户端连接关闭失败：地址=127.0.0.1:52714 id=35 email=18810994068@163.com  姓名=
+2024/03/24 19:48:24 [debug  ] /getUser 接收消息:id=35 1 127.0.0.1:52739 {"type":"/getUser"}
+2024/03/24 19:48:24 [debug  ] /getUser发送:id=%!s(int=35) 消息={"type":"/setUser","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 19:48:30 [debug  ] [::1]:52375 POST /login
+2024/03/24 19:48:30 [debug  ] {"code":"200","message":"请求成功！","data":"NGkuJekIctJjZJRmbYztWoBl"}
+2024/03/24 19:48:31 [debug  ] [::1]:52375 OPTIONS /getUser
+2024/03/24 19:48:31 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:48:31 [debug  ] [::1]:52375 OPTIONS /getServers
+2024/03/24 19:48:31 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:48:31 [debug  ] [::1]:52755 GET /getUser
+2024/03/24 19:48:31 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 19:48:31 [debug  ] [::1]:52375 GET /getServers
+2024/03/24 19:48:31 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 19:48:31 [debug  ] [::1]:52375 OPTIONS /getUsedServers
+2024/03/24 19:48:31 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:48:31 [debug  ] [::1]:52375 GET /getUsedServers
+2024/03/24 19:48:31 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 19:48:33 [debug  ] [::1]:52375 GET /getUser
+2024/03/24 19:48:33 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 19:48:38 [debug  ] 127.0.0.1:52702 GET /getUser
+2024/03/24 19:48:38 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 19:48:38 [debug  ] 未登录:127.0.0.1:52781:{"type":"/unLogin","data":null}
+2024/03/24 19:48:39 [debug  ] 127.0.0.1:52702 GET /getUser
+2024/03/24 19:48:39 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 19:48:39 [debug  ] 未登录:127.0.0.1:52783:{"type":"/unLogin","data":null}
+2024/03/24 19:48:44 [debug  ] [::1]:52375 POST /login
+2024/03/24 19:48:44 [debug  ] {"code":"200","message":"请求成功！","data":"xFGrpuRwXxIWkpvMLdaEqbiB"}
+2024/03/24 19:48:45 [debug  ] [::1]:52375 OPTIONS /getUser
+2024/03/24 19:48:45 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:48:45 [debug  ] [::1]:52755 OPTIONS /getServers
+2024/03/24 19:48:45 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:48:45 [debug  ] [::1]:52375 GET /getUser
+2024/03/24 19:48:45 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 19:48:45 [debug  ] [::1]:52755 GET /getServers
+2024/03/24 19:48:45 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 19:48:45 [debug  ] [::1]:52755 OPTIONS /getUsedServers
+2024/03/24 19:48:45 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 19:48:45 [debug  ] [::1]:52755 GET /getUsedServers
+2024/03/24 19:48:45 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 19:48:48 [debug  ] [::1]:52755 GET /getUser
+2024/03/24 19:48:48 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 19:48:52 [debug  ] 127.0.0.1:52702 GET /getUser
+2024/03/24 19:48:52 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 19:48:52 [debug  ] 未登录:127.0.0.1:52822:{"type":"/unLogin","data":null}
+2024/03/24 19:48:53 [debug  ] 127.0.0.1:52702 GET /getUser
+2024/03/24 19:48:53 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 19:48:53 [debug  ] 未登录:127.0.0.1:52826:{"type":"/unLogin","data":null}
+2024/03/24 20:11:59 [debug  ] [::1]:55657 POST /login
+2024/03/24 20:11:59 [debug  ] {"code":"200","message":"请求成功！","data":"sCjXGLIHRtLjQammSUyazaBC"}
+2024/03/24 20:12:00 [debug  ] [::1]:55657 OPTIONS /getUser
+2024/03/24 20:12:00 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:12:00 [debug  ] [::1]:55657 OPTIONS /getServers
+2024/03/24 20:12:00 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:12:00 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:12:00 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:12:00 [debug  ] [::1]:55657 GET /getServers
+2024/03/24 20:12:00 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:12:01 [debug  ] [::1]:55657 OPTIONS /getUsedServers
+2024/03/24 20:12:01 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:12:01 [debug  ] [::1]:55657 GET /getUsedServers
+2024/03/24 20:12:01 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:12:25 [debug  ] [::1]:55657 OPTIONS /getUser
+2024/03/24 20:12:25 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:12:25 [debug  ] [::1]:55657 GET /getUser
+2024/03/24 20:12:25 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:12:30 [debug  ] 127.0.0.1:55718 GET /getUser
+2024/03/24 20:12:30 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:12:30 [debug  ] 未登录:127.0.0.1:55717:{"type":"/unLogin","data":null}
+2024/03/24 20:12:30 [debug  ] 127.0.0.1:55718 GET /getUser
+2024/03/24 20:12:30 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:12:30 [debug  ] 未登录:127.0.0.1:55720:{"type":"/unLogin","data":null}
+2024/03/24 20:15:15 [debug  ] [::1]:55657 POST /login
+2024/03/24 20:15:15 [debug  ] {"code":"200","message":"请求成功！","data":"ELuOIUBfDkkUmFYtnwpybTIT"}
+2024/03/24 20:15:16 [debug  ] [::1]:55657 OPTIONS /getUser
+2024/03/24 20:15:16 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:15:16 [debug  ] [::1]:55662 OPTIONS /getServers
+2024/03/24 20:15:16 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:15:16 [debug  ] [::1]:55657 GET /getUser
+2024/03/24 20:15:16 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:15:16 [debug  ] [::1]:55662 GET /getServers
+2024/03/24 20:15:16 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:15:16 [debug  ] [::1]:55662 OPTIONS /getUsedServers
+2024/03/24 20:15:16 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:15:16 [debug  ] [::1]:55662 GET /getUsedServers
+2024/03/24 20:15:16 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:15:19 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:15:19 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:16:37 [debug  ] 127.0.0.1:56169 GET /getUser
+2024/03/24 20:16:37 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:16:37 [debug  ] 未登录:127.0.0.1:56168:{"type":"/unLogin","data":null}
+2024/03/24 20:16:37 [debug  ] 127.0.0.1:56169 GET /getUser
+2024/03/24 20:16:37 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:16:37 [debug  ] 未登录:127.0.0.1:56171:{"type":"/unLogin","data":null}
+2024/03/24 20:16:54 [debug  ] [::1]:55662 POST /login
+2024/03/24 20:16:54 [debug  ] {"code":"200","message":"请求成功！","data":"ytdBNVYKOqNatYaYLOkPnXGf"}
+2024/03/24 20:16:55 [debug  ] [::1]:55662 OPTIONS /getUser
+2024/03/24 20:16:55 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:16:55 [debug  ] [::1]:55657 OPTIONS /getServers
+2024/03/24 20:16:55 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:16:55 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:16:55 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:16:55 [debug  ] [::1]:55657 GET /getServers
+2024/03/24 20:16:55 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:16:55 [debug  ] [::1]:55657 OPTIONS /getUsedServers
+2024/03/24 20:16:55 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:16:55 [debug  ] [::1]:55657 GET /getUsedServers
+2024/03/24 20:16:55 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:16:57 [debug  ] [::1]:55657 GET /getUser
+2024/03/24 20:16:57 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:17:01 [debug  ] 127.0.0.1:56169 GET /getUser
+2024/03/24 20:17:01 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:17:01 [debug  ] 未登录:127.0.0.1:56220:{"type":"/unLogin","data":null}
+2024/03/24 20:17:03 [debug  ] 127.0.0.1:56169 GET /getUser
+2024/03/24 20:17:03 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:17:03 [debug  ] 未登录:127.0.0.1:56227:{"type":"/unLogin","data":null}
+2024/03/24 20:17:05 [debug  ] [::1]:55657 POST /login
+2024/03/24 20:17:05 [debug  ] {"code":"200","message":"请求成功！","data":"ZPEDDDWkOTBacAqUiRkSgozT"}
+2024/03/24 20:17:08 [debug  ] [::1]:55657 OPTIONS /getUser
+2024/03/24 20:17:08 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:17:08 [debug  ] [::1]:55657 OPTIONS /getServers
+2024/03/24 20:17:08 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:17:08 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:17:08 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:17:08 [debug  ] [::1]:55657 GET /getServers
+2024/03/24 20:17:08 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:17:10 [debug  ] [::1]:55657 OPTIONS /getUsedServers
+2024/03/24 20:17:10 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:17:10 [debug  ] [::1]:55657 GET /getUsedServers
+2024/03/24 20:17:10 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:17:13 [debug  ] [::1]:55657 OPTIONS /getUser
+2024/03/24 20:17:13 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:17:13 [debug  ] [::1]:55657 GET /getUser
+2024/03/24 20:17:13 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:17:20 [debug  ] 127.0.0.1:56169 GET /getUser
+2024/03/24 20:17:20 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:17:20 [debug  ] 未登录:127.0.0.1:56267:{"type":"/unLogin","data":null}
+2024/03/24 20:17:22 [debug  ] 127.0.0.1:56169 GET /getUser
+2024/03/24 20:17:22 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:17:22 [debug  ] 未登录:127.0.0.1:56273:{"type":"/unLogin","data":null}
+2024/03/24 20:17:49 [debug  ] [::1]:55657 POST /login
+2024/03/24 20:17:49 [debug  ] {"code":"200","message":"请求成功！","data":"MQOjipSTmvOUWArWmGOcUELP"}
+2024/03/24 20:17:51 [debug  ] [::1]:55657 OPTIONS /getUser
+2024/03/24 20:17:51 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:17:51 [debug  ] [::1]:55662 OPTIONS /getServers
+2024/03/24 20:17:51 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:17:51 [debug  ] [::1]:55657 GET /getUser
+2024/03/24 20:17:51 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:17:51 [debug  ] [::1]:55662 GET /getServers
+2024/03/24 20:17:51 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:17:53 [debug  ] [::1]:55662 OPTIONS /getUsedServers
+2024/03/24 20:17:53 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:17:53 [debug  ] [::1]:55662 GET /getUsedServers
+2024/03/24 20:17:53 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:17:58 [debug  ] [::1]:55662 OPTIONS /getUser
+2024/03/24 20:17:58 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:17:58 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:17:58 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:18:01 [debug  ] 127.0.0.1:56169 GET /getUser
+2024/03/24 20:18:01 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:18:01 [debug  ] 未登录:127.0.0.1:56343:{"type":"/unLogin","data":null}
+2024/03/24 20:18:02 [debug  ] 127.0.0.1:56169 GET /getUser
+2024/03/24 20:18:02 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:18:02 [debug  ] 未登录:127.0.0.1:56345:{"type":"/unLogin","data":null}
+2024/03/24 20:21:43 [debug  ] [::1]:55662 POST /login
+2024/03/24 20:21:43 [debug  ] {"code":"200","message":"请求成功！","data":"myyexEvOqtvNvLsgWivuSTng"}
+2024/03/24 20:21:43 [debug  ] [::1]:55662 OPTIONS /getUser
+2024/03/24 20:21:43 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:21:43 [debug  ] [::1]:55662 OPTIONS /getServers
+2024/03/24 20:21:43 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:21:43 [debug  ] [::1]:55657 GET /getUser
+2024/03/24 20:21:43 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:21:43 [debug  ] [::1]:55662 GET /getServers
+2024/03/24 20:21:43 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:21:44 [debug  ] [::1]:55662 OPTIONS /getUsedServers
+2024/03/24 20:21:44 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:21:44 [debug  ] [::1]:55662 GET /getUsedServers
+2024/03/24 20:21:44 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:21:47 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:21:47 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:21:51 [debug  ] 127.0.0.1:56796 GET /getUser
+2024/03/24 20:21:51 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:21:51 [debug  ] 未登录:127.0.0.1:56795:{"type":"/unLogin","data":null}
+2024/03/24 20:22:00 [debug  ] [::1]:55662 POST /login
+2024/03/24 20:22:00 [debug  ] {"code":"200","message":"请求成功！","data":"iJNunglWYYphYpkqokaEMRJX"}
+2024/03/24 20:22:01 [debug  ] [::1]:55662 OPTIONS /getUser
+2024/03/24 20:22:01 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:22:01 [debug  ] [::1]:55657 OPTIONS /getServers
+2024/03/24 20:22:01 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:22:01 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:22:01 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:22:01 [debug  ] [::1]:55657 GET /getServers
+2024/03/24 20:22:01 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:22:01 [debug  ] [::1]:55657 OPTIONS /getUsedServers
+2024/03/24 20:22:01 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:22:01 [debug  ] [::1]:55657 GET /getUsedServers
+2024/03/24 20:22:01 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:22:02 [debug  ] [::1]:55657 GET /getUser
+2024/03/24 20:22:02 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:22:06 [debug  ] 127.0.0.1:56796 GET /getUser
+2024/03/24 20:22:06 [debug  ] {"code":"502","message":"登录失效","data":"登录失效"}
+2024/03/24 20:22:06 [debug  ] 未登录:127.0.0.1:56826:{"type":"/unLogin","data":null}
+2024/03/24 20:25:41 [debug  ] [::1]:55657 POST /login
+2024/03/24 20:25:41 [debug  ] {"code":"200","message":"请求成功！","data":"ESsnALnQqvwDYzyTYVtomrOw"}
+2024/03/24 20:25:41 [debug  ] [::1]:55657 OPTIONS /getUser
+2024/03/24 20:25:41 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:25:41 [debug  ] [::1]:55662 OPTIONS /getServers
+2024/03/24 20:25:41 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:25:41 [debug  ] [::1]:55657 GET /getUser
+2024/03/24 20:25:41 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:25:41 [debug  ] [::1]:55662 GET /getServers
+2024/03/24 20:25:41 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:25:42 [debug  ] [::1]:55662 OPTIONS /getUsedServers
+2024/03/24 20:25:42 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:25:42 [debug  ] [::1]:55662 GET /getUsedServers
+2024/03/24 20:25:42 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:25:45 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:25:45 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:27:03 [debug  ] 新uuid:hsOOxoNiKShOMOiiQOeniGbi与旧uuid:PZUyTFMHdPhahuUYmDBglBaa  重复登录断开连接：:id=%!s(int=35) 消息={"type":"/singClose","data":null}
+2024/03/24 20:27:03 [debug  ] uuid:hsOOxoNiKShOMOiiQOeniGbi ws客户端连接成功：地址=127.0.0.1:57410 id=35 email=18810994068@163.com  姓名=
+2024/03/24 20:27:03 [error  ] uid:PZUyTFMHdPhahuUYmDBglBaa 其他错误，ws客户端连接关闭：地址=127.0.0.1:52739 id=35 email=18810994068@163.com  错误=read tcp 127.0.0.1:3564->127.0.0.1:52739: use of closed network connection
+2024/03/24 20:27:03 [error  ] uuid:PZUyTFMHdPhahuUYmDBglBaa ws客户端连接关闭失败：地址=127.0.0.1:52739 id=35 email=18810994068@163.com  姓名=
+2024/03/24 20:27:03 [debug  ] /getUser 接收消息:id=35 2 127.0.0.1:57410 {"type":"/getUser","data":null}
+2024/03/24 20:27:03 [debug  ] /getUser发送:id=%!s(int=35) 消息={"type":"/setUser","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:28:40 [debug  ] uuid:hsOOxoNiKShOMOiiQOeniGbi ws客户端连接关闭：地址=127.0.0.1:57410 id=35 email=18810994068@163.com  姓名=
+2024/03/24 20:28:42 [debug  ] [::1]:55662 POST /login
+2024/03/24 20:28:42 [debug  ] {"code":"200","message":"请求成功！","data":"eEuTYoBrXkUsxUWbAmJzeDNw"}
+2024/03/24 20:28:43 [debug  ] [::1]:55662 OPTIONS /getUser
+2024/03/24 20:28:43 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:28:43 [debug  ] [::1]:55657 OPTIONS /getServers
+2024/03/24 20:28:43 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:28:43 [debug  ] [::1]:55662 GET /getUser
+2024/03/24 20:28:43 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:28:43 [debug  ] [::1]:55657 GET /getServers
+2024/03/24 20:28:43 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:28:43 [debug  ] [::1]:55657 OPTIONS /getUsedServers
+2024/03/24 20:28:43 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:28:43 [debug  ] [::1]:55657 GET /getUsedServers
+2024/03/24 20:28:43 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:37:14 [debug  ] [::1]:58348 OPTIONS /getUser
+2024/03/24 20:37:14 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:37:14 [debug  ] [::1]:58348 OPTIONS /getServers
+2024/03/24 20:37:14 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:37:14 [debug  ] [::1]:58349 GET /getUser
+2024/03/24 20:37:14 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:37:14 [debug  ] [::1]:58348 GET /getServers
+2024/03/24 20:37:14 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:37:15 [debug  ] [::1]:58348 OPTIONS /getUsedServers
+2024/03/24 20:37:15 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:37:15 [debug  ] [::1]:58348 GET /getUsedServers
+2024/03/24 20:37:15 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:40:43 [debug  ] [::1]:58348 OPTIONS /getUser
+2024/03/24 20:40:43 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:40:43 [debug  ] [::1]:58349 OPTIONS /getServers
+2024/03/24 20:40:43 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:40:43 [debug  ] [::1]:58348 GET /getUser
+2024/03/24 20:40:43 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:40:43 [debug  ] [::1]:58349 GET /getServers
+2024/03/24 20:40:43 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:40:43 [debug  ] [::1]:58349 OPTIONS /getUsedServers
+2024/03/24 20:40:43 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:40:43 [debug  ] [::1]:58349 GET /getUsedServers
+2024/03/24 20:40:43 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:46:00 [debug  ] [::1]:59275 OPTIONS /getUser
+2024/03/24 20:46:00 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:46:00 [debug  ] [::1]:59275 OPTIONS /getServers
+2024/03/24 20:46:00 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:46:00 [debug  ] [::1]:59276 GET /getUser
+2024/03/24 20:46:00 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:46:00 [debug  ] [::1]:59275 GET /getServers
+2024/03/24 20:46:00 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:46:00 [debug  ] [::1]:59275 OPTIONS /getUsedServers
+2024/03/24 20:46:00 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:46:00 [debug  ] [::1]:59275 GET /getUsedServers
+2024/03/24 20:46:00 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:48:02 [debug  ] [::1]:59275 OPTIONS /getUser
+2024/03/24 20:48:02 [debug  ] [::1]:59276 OPTIONS /getServers
+2024/03/24 20:48:02 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:48:02 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:48:02 [debug  ] [::1]:59275 GET /getUser
+2024/03/24 20:48:02 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:48:02 [debug  ] [::1]:59276 GET /getServers
+2024/03/24 20:48:02 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:48:03 [debug  ] [::1]:59276 OPTIONS /getUsedServers
+2024/03/24 20:48:03 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:48:03 [debug  ] [::1]:59276 GET /getUsedServers
+2024/03/24 20:48:03 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:48:36 [debug  ] [::1]:59276 OPTIONS /getUser
+2024/03/24 20:48:36 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:48:36 [debug  ] [::1]:59276 OPTIONS /getServers
+2024/03/24 20:48:36 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:48:36 [debug  ] [::1]:59275 GET /getUser
+2024/03/24 20:48:36 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:48:36 [debug  ] [::1]:59276 GET /getServers
+2024/03/24 20:48:36 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:48:37 [debug  ] [::1]:59276 OPTIONS /getUsedServers
+2024/03/24 20:48:37 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:48:37 [debug  ] [::1]:59276 GET /getUsedServers
+2024/03/24 20:48:37 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:49:21 [debug  ] [::1]:59276 OPTIONS /getUser
+2024/03/24 20:49:21 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:21 [debug  ] [::1]:59275 OPTIONS /getServers
+2024/03/24 20:49:21 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:21 [debug  ] [::1]:59276 GET /getUser
+2024/03/24 20:49:21 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:49:21 [debug  ] [::1]:59275 GET /getServers
+2024/03/24 20:49:21 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:49:21 [debug  ] [::1]:59275 OPTIONS /getUsedServers
+2024/03/24 20:49:21 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:21 [debug  ] [::1]:59275 GET /getUsedServers
+2024/03/24 20:49:21 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:49:40 [debug  ] [::1]:59275 OPTIONS /getUser
+2024/03/24 20:49:40 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:40 [debug  ] [::1]:59276 OPTIONS /getServers
+2024/03/24 20:49:40 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:40 [debug  ] [::1]:59275 GET /getUser
+2024/03/24 20:49:40 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:49:40 [debug  ] [::1]:59276 GET /getServers
+2024/03/24 20:49:40 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:49:41 [debug  ] [::1]:59276 OPTIONS /getUsedServers
+2024/03/24 20:49:41 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:41 [debug  ] [::1]:59276 GET /getUsedServers
+2024/03/24 20:49:41 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:49:54 [debug  ] [::1]:59276 OPTIONS /login
+2024/03/24 20:49:54 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:54 [debug  ] [::1]:59275 POST /login
+2024/03/24 20:49:54 [debug  ] {"code":"200","message":"请求成功！","data":"odBpzkUrNTxKoYbfKhqZEORx"}
+2024/03/24 20:49:55 [debug  ] [::1]:59275 OPTIONS /getUser
+2024/03/24 20:49:55 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:55 [debug  ] [::1]:59276 OPTIONS /getServers
+2024/03/24 20:49:55 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:55 [debug  ] [::1]:59275 GET /getUser
+2024/03/24 20:49:55 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:49:55 [debug  ] [::1]:59276 GET /getServers
+2024/03/24 20:49:55 [debug  ] {"code":"200","message":"请求成功！","data":[{"id":1,"address":"http://localhost:3564","code":1000,"status":1,"max":20000,"serverName":"1区 国士无双","recommend":1,"CreatedAt":"2024-02-14T20:16:41+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null},{"id":2,"address":"http://localhost:3564","code":1001,"status":1,"max":20000,"serverName":"2区 风云际会","recommend":0,"CreatedAt":"2024-02-14T20:16:44+08:00","UpdatedAt":"2024-02-17T09:23:27+08:00","DeletedAt":null}]}
+2024/03/24 20:49:56 [debug  ] [::1]:59276 OPTIONS /getUsedServers
+2024/03/24 20:49:56 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:49:56 [debug  ] [::1]:59276 GET /getUsedServers
+2024/03/24 20:49:56 [debug  ] {"code":"200","message":"请求成功！","data":null}
+2024/03/24 20:50:01 [debug  ] [::1]:59276 OPTIONS /getUser
+2024/03/24 20:50:01 [debug  ] {"code":"200","message":"请求成功！","data":"请求成功"}
+2024/03/24 20:50:01 [debug  ] [::1]:59276 GET /getUser
+2024/03/24 20:50:01 [debug  ] {"code":"200","message":"请求成功！","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 20:50:05 [debug  ] uuid:MJDiLZgFKvIPbbgExktzVAJL ws客户端连接成功：地址=127.0.0.1:59741 id=35 email=18810994068@163.com  姓名=
+2024/03/24 20:50:05 [debug  ] /getUser 接收消息:id=35 2 127.0.0.1:59741 {"type":"/getUser","data":null}
+2024/03/24 20:50:05 [debug  ] /getUser发送:id=%!s(int=35) 消息={"type":"/setUser","data":{"id":35,"userRoles":null,"age":0,"gender":"","code":"","name":"","identity":"","dateOfBirth":"","address":"","server":"","postalCode":"","qq":"","wx":"","zfb":"","account":"svdtNqPWnhpd","pw":"","phone":"","email":"18810994068@163.com","CreatedAt":"2023-10-31T18:37:53+08:00","UpdatedAt":"2024-01-13T14:27:04+08:00","DeletedAt":null}}
+2024/03/24 21:00:29 [debug  ] uuid:MJDiLZgFKvIPbbgExktzVAJL ws客户端连接关闭：地址=127.0.0.1:59741 id=35 email=18810994068@163.com  姓名=
