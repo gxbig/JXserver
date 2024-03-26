@@ -6,12 +6,16 @@ import (
 	"math/rand"
 	"net/http"
 	"reflect"
+	"server/msg"
 	"server/tool"
 	"strconv"
 	"strings"
 	"time"
 	"unsafe"
 )
+
+// 所有服务器列表
+var ServerList []msg.Server
 
 type Results struct {
 	Code    string      `json:"code"`

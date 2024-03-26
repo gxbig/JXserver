@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"server/conf"
+	_ "server/loadCommonData"
 	"server/redisClient"
 	_ "server/sqlClient"
 	"server/threadPool"
